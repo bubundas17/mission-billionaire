@@ -1,0 +1,69 @@
+<% include ../../inc/header %>
+<div class="container">
+  <h1>Client area</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../../inc/admincpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>Support Tickets</h4>
+        </div>
+        <div class="panel-body">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Active Tickets
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Statas</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <% active.forEach( ticket => { %>
+                    <tbody>
+                        <tr>
+                          <td><span style="color:#4caf50"><%= ticket.status %></span></td>
+                          <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
+                        </tr>
+                      </tbody>
+                  <% }) %>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              All Tickets
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Statas</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <% tickets.forEach( ticket => { %>
+                    <tbody>
+                        <tr>
+                          <td><span style="color:#4caf50"><%= ticket.status %></span></td>
+                          <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
+                        </tr>
+                      </tbody>
+                  <% }) %>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include ../../inc/footer %>

@@ -1,0 +1,60 @@
+<% include ../inc/header %>
+<div class="container">
+  <h1>clientarea</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../inc/usercpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="list-group">
+        <div class="list-group-item active">
+          <h5 class="mb-1">Account Statement</h5>
+        </div>
+        <div class="list-group-item">
+          <div class="table-responsive">
+          <table class="table table-hover table-fixed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>Stasus</th>
+                <th>Reason</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <% transactions.forEach(function(transaction){ %>
+              <tbody>
+                <tr>
+                  <th scope="row"><%= transaction.txnId %></th>
+                  <td><%= transaction.txnType %></td>
+                  <td><%= transaction.ammount %></td>
+                  <td><%= transaction.status %></td>
+                  <td><%= transaction.reason %></td>
+                  <%  var date = new Date(transaction.date);
+                      year = date.getFullYear();
+                      month = date.getMonth()+1;
+                      dt = date.getDate();
+                      if (dt < 10) {
+                        dt = '0' + dt;
+                      }
+                      if (month < 10) {
+                        month = '0' + month;
+                      }
+
+                      var displayDate = year+'-' + month + '-'+dt;
+                    %>
+                  <td><%= displayDate %></td>
+                </tr>
+              </tbody>
+              <% }) %>
+            </table>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include ../inc/footer %>

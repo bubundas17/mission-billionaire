@@ -1,0 +1,62 @@
+<% include ../inc/header %>
+  <div class="container">
+      <h1>Profile</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <% include ../inc/usercpsider.ejs %>
+        </div>
+        <div class="col-md-8">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4>Edit Your Profile</h4>
+            </div>
+            <div class="panel-body">
+              <div class="list-group">
+                <form class="" action="/profile/edit?_method=put" method="post">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" required>Phone:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="phone" value="<%= user.meta.phone %>" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">DOB:</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="dateOfBarth" value="<%= user.meta.dateOfBarth %>" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Country:</label>
+                    <div class="col-sm-10">
+                      <select name="country" class="form-control" id="country" required>
+                        <option value="<%= user.meta.address.country %>"><%= user.meta.address.country %></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">State:</label>
+                    <div class="col-sm-10">
+                      <select name="state" class="form-control" id="state" required>
+                        <option value="<%= user.meta.address.state %>"><%= user.meta.address.stste %></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">TKC Address:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="tkc" value="<%= user.tkc %>" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <button name="button" class="btn btn-success">Save</button>
+            </form>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+  <script type="text/javascript" src="/js/selectStates.js"> </script>
+  <script type="text/javascript">
+    populateCountries("country", "state");
+  </script>
+<% include ../inc/footer %>

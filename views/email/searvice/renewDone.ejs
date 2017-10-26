@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>Hello  <%= service.user.name %>,</p>
+  <p>Nice to seeing you agin. :D</p>
+  <p>One of Your Searvices is just renewed! And Here is the summary.</p>
+  <div style="background-color: #f5f5f5; padding: 20px; margin: 10px;">
+    <h4>Service Info: </h4>
+    <hr>
+    <p><%= service.service.package %> for <%= service.service.domain %></p>
+    <p>Renewed Until: <%=  service.service.nextRenewal.getFullYear()+'-' + (service.service.nextRenewal.getMonth()+1) + '-'+service.service.nextRenewal.getDate()%></p>
+    <p>Renewal Cost: INR <%= service.service.renewalCost %></p>
+  </div>
+  <div style="background-color: #f5f5f5; padding: 20px; margin: 10px;">
+    <h4>Account Info: </h4>
+    <hr>
+    <p>Username: <%= service.user.username %></p>
+    <p>Avilable Credits: <%= service.user.credits %></p>
+  </div>
+</body>
+</html>

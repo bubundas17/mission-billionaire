@@ -1,0 +1,33 @@
+<%- include ../inc/header %>
+<div class="particles">
+  <div id="particles-js">
+  </div>
+  <div class="container">
+    <form class="" action="/signup" method="get">
+      <div class="panel panel-warning signup animated fadeIn">
+        <div class="panel-heading">
+          <h4>Create An Account</h4>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h2>Enter Sponser ID.</h2>
+            </div>
+            <div class="list-group-item">
+              <input type="text" name="refer">
+              <input type="submit" class="btn btn-success" value="Submit">
+              <p>If you not sure about this. please ask who refered you.</p>
+              <p>If Nobody refered you to this site, simply enter <strong>nobody</strong> on that field.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/lib/js/particles.js"></script>
+<script>
+particlesJS.load('particles-js', '/particles.json');
+</script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<%- include ../inc/footer %>

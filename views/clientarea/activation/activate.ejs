@@ -1,0 +1,26 @@
+<% include ../../inc/header %>
+  <div class="container">
+    <h1>Client area</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="list-group">
+          <div class="list-group-item active">
+            <h5>Activate Your Account:</h5>
+          </div>
+          <div class="list-group-item">
+            <p>Please Activate your account by using the token code provided by who reffered you.</p>
+            <p>For Any questions contact support.</p>
+          </div>
+          <div class="list-group-item">
+            <form action="/clientarea/active" method="post" class="form-inline">
+              <input type="text" class="form-group-item" name="token">
+              <input type="submit" class="btn btn-success">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include ../../inc/footer %>

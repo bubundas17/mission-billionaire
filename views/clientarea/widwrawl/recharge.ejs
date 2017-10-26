@@ -1,0 +1,104 @@
+<% include ../../inc/header %>
+  <div class="container">
+    <h1>Client area</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <% include ../../inc/usercpsider.ejs %>
+      </div>
+      <div class="col-md-8">
+        <div class="list-group">
+          <div class="list-group-item active">
+            <h5>Widwrawl Via Mobile Recharge</h5>
+          </div>
+          <div class="list-group-item">
+            <p>Here you can recharge your mobile by using Tkc4you.com credits.</p>
+            <p class="info"> <strong>Note: Please fill the withdrawal form carefully, it can't be undone later!</strong></p>
+          </div>
+            <div id="form">
+              <form action="/clientarea/widwrawl/recharge" method="post" class="form-group">
+                <div class="list-group-item">
+                  <small>Mobile Number:</small>
+                  <input type="number" placeholder="Mobile Number" class="form-control" name="number" required>
+                </div>
+                <div class="list-group-item">
+                  <small>Select Operator:</small>
+                  <select type="text" name="operator" class="form-control">
+                    <option value="Airtel">Airtel</option>
+                    <option value="Jio">Jio</option>
+                    <option value="Vodafone">Vodafone</option>
+                    <option value="Idea">Idea</option>
+                    <option value="Aircel">Aircel</option>
+                    <option value="Relaince GSM">Relaince GSM</option>
+                    <option value="MTS">MTS</option>
+                    <option value="Telenor">Telenor</option>
+                    <option value="BSNL">BSNL</option>
+                    <option value="MTNL">MTNL</option>
+                    <option value="Relaince CDMA">Relaince CDMA</option>
+                    <option value="T24">T24</option>
+                    <option value="TATA Docomo">TATA Docomo</option>
+                    <option value="TATA Indicom">TATA Indicom</option>
+                  </select>
+                </div>
+                <div class="list-group-item">
+                  <small>Select State</small>
+                  <select name="state" class="form-control">
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar Jharkhand">Bihar Jharkhand</option>
+                    <option value="Chenni">Chenni</option>
+                    <option value="Delhi NCR">Delhi NCR</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu Kashmir">Jammu Kashmir</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Kolkatta">Kolkatta</option>
+                    <option value="Madhya Pradesh Chhattisgarh">Madhya Pradesh Chhattisgarh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="North East">North East</option>
+                    <option value="Orissa">Orissa</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="UP East">UP East</option>
+                    <option value="UP West">UP West</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </select>
+                </div>
+                <div class="list-group-item">
+                  <small>Amount: (Min RS. 10)</small>
+                  <small>1 INR = <%= 1*info.tkcRates %> TKC</small>
+                  <input type="number" placeholder="Recharge Amount" class="form-control" v-model="amount" name="amount">
+                  <small>You'll Be Charged: {{ inrToTkc }} TKC</small>
+                </div>
+                <div class="list-group-item">
+                  <input type="submit" class="btn btn-success" value="Recharge!" id="rech">
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: "#form",
+      data: {
+        amount: 10,
+        exchengeRates: <%= info.tkcRates %>
+      },
+      computed: {
+        inrToTkc(){
+          return (this.amount * this.exchengeRates)
+        }
+      }
+
+
+    })
+  </script>
+  <% include ../../inc/footer %>

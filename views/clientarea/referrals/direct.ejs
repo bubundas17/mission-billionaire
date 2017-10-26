@@ -1,0 +1,86 @@
+<% include ../../inc/header %>
+  <div class="container">
+    <h1>Client area</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <% include ../../inc/usercpsider.ejs %>
+      </div>
+      <div class="col-md-8">
+        <div class="list-group">
+          <div class="list-group-item">
+            <form class="form-inline" action="" method="get">
+              <div class="form-gtoup">
+                <label for="Search">Search Users:</label>
+                <input type="text" name="q" id="" class="form-control">
+                <button class="form-control btn btn-info btn-sm" >Search</button>
+              </div>
+            </form>
+          </div>
+          <div class="list-group-item table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Phone Number</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+          <% users.docs.forEach( (user, index) => { %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= user.name %></td>
+              <td><%= user.username %></td>
+              <td><%= user.meta.phone %></td>
+              <td><span><%= user.isActive ? "Active": "Not Active" %></span></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <%
+      var q = req.query.q || "";
+      %>
+      <nav aria-label="Pagenation"  class="center">
+        <ul class="pagination">
+          <%if(users.page <= 1){ %>
+            <li class="disabled"><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <% } else { %>
+              <li><a href="?<%= func.objtoQuery({
+                q: q,
+                page: users.page-1
+              }) %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+              <% } %>
+
+              <% for(i=1; i<= users.pages; i++) { %>
+                <%if(users.page == i){ %>
+                  <li class="active"><a><%= i %><span class="sr-only">(current)</span></a></li>
+                  <% } else { %>
+                    <li><a href="?<%= func.objtoQuery({
+                      q: q,
+                      page: i
+                    }) %>" ><%= i %></a></li>
+                    <% } %>
+                    <% }%>
+
+
+                    <%if(users.page == users.pages){ %>
+                      <li class="disabled"><a aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                      <% } else { %>
+                        <li><a href="?<%= func.objtoQuery({
+                          q: q,
+                          page: parseInt(users.page) + 1
+                        }) %>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                        <% } %>
+                      </ul>
+                    </nav>
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <% include ../../inc/footer %>

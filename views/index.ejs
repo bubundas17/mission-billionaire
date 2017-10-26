@@ -1,0 +1,172 @@
+<%- include inc/header %>
+<script src="/lib/js/parallax.min.js"></script>
+<script src="/lib/js/typed.min.js"></script>
+<div id="welcomeContainer">
+  <div id="ParticlesIndex">
+  </div>
+<div class="parallax-window" id="welcome" data-parallax="scroll" data-image-src="/images/welcome.jpg">
+  <div id="intro">
+    </div>
+  </div>
+</div>
+
+
+<div class="showcase">
+  <div class="container">
+    <h3 class="center">WHAT MAKES OUR PLAN BEST?</h3>
+    <br>
+    <div class="row">
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-tachometer element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>Realtime Dashboard</strong> </p>
+            <p>Realtime Updated On Your dashboard</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-money element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>Daily Payments</strong> </p>
+            <p>We'll complete your payout requests daily.</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-lightbulb-o element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>Unique Plan idea</strong> </p>
+            <p>Our plan opens the door of unlimited income right away.</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-lock element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>Instent Account Activation</strong> </p>
+            <p>Once you parched activation Cupon, You'll be able to Active your account instently.</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-clock-o element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>Free 24�7/365 Support</strong> </p>
+            <p>You can reach our team at any time, day or night.</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3">
+            <div class="icon">
+              <i class="fa fa-certificate element-icon "></i>
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-8 col-sm-9">
+            <p> <strong>No Risk Guarantee</strong> </p>
+            <p>Our Plan is unique and there is also no potensial risks involbed!</p>
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="parallax-window" id="plans" data-parallax="scroll" data-image-src="/images/server.jpg">
+</div>
+
+
+
+
+
+<!-- scripts -->
+  <!-- Typed Js -->
+<script type="text/javascript">
+  $('#welcome').parallax({imageSrc: '/images/welcome.png'});
+  $('#plans').parallax({imageSrc: '/images/server.jpg'});
+  var typed = new Typed('#intro', {
+    strings: [
+      "",
+      "<h3>Welcome To Tkc4You,</h3>",
+       "<h3>Tkc4You opens the door of unlimited earning </h3>",
+       "<h3>And the best thing is there is no risk involbed! </h3>",
+       "<h3>What Are you waiting for?</h3>",
+       "<h3>Give us a try!</h3> <br /> <small>Tkc4You</small>"],
+    typeSpeed: 60
+  });
+</script>
+
+  <!-- particls Js -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+<script src="/lib/js/particles.js"></script>
+<script src="/lib/js/scroll-entrance.js"></script>
+
+<script>
+particlesJS.load('ParticlesIndex', '/particles.json');
+$('.plan').matchHeight();
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+<% if(userInfo){ %>
+Tawk_API.visitor = {
+    name  : '<%= userInfo.name %>',
+    email : '<%= userInfo.meta.email %>'
+};
+<% } %>
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/59f0da924854b82732ff7a4a/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+<%- include inc/footer %>

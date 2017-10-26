@@ -1,0 +1,33 @@
+<% include ../../inc/header %>
+<div class="container">
+  <h1>Client area</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../../inc/admincpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>generate Tokens</h4>
+        </div>
+        <div class="panel-body">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Generate Tokens
+            </div>
+            <div class="panel-body">
+              <label for="Tocken Generation.">Number Of Token to be generated:</label>
+              <form action="/admin/token/new" method="post" class="form-inline">
+                <input type="number" name="amount" class="form Group" value="1">
+                <input type="submit" value="Generate!" class="btn btn-primary">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include ../../inc/footer %>

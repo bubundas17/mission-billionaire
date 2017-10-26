@@ -1,0 +1,70 @@
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="center">
+        <i class="fa fa-user-circle fa-5x author-image" aria-hidden="true"></i>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong><h6 class="panel-title"><%= userInfo.username %></h6></Strong>
+        </div>
+        <div class="list-group-item">
+          <strong>Credits: <a href="/clientarea/statement">₹ <%= userInfo.credits %></a> </Strong>
+        </div>
+      </div>
+
+    <div class="panel panel-default" id="panel1">
+        <div class="panel-heading">
+          <span data-toggle="collapse" data-target="#collapse1" >
+             <h4 class="panel-title">
+          Tokens
+        <span class="badge"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span>
+      </h4>
+    </span>
+        </div>
+        <div id="collapse1" class="collapse"  aria-expanded="false">
+        <a href="/admin/token" class="list-group-item">View All Tokens</a>
+        <a href="/admin/token/generate" class="list-group-item">Generate Tokens</a>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="panel2">
+        <div class="panel-heading">
+          <span data-toggle="collapse" data-target="#collapse2" >
+             <h4 class="panel-title"> User Management
+        <span class="badge"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span>
+      </h4>
+    </span>
+        </div>
+        <div id="collapse2" class="collapse"  aria-expanded="false">
+        <a href="/admin/users" class="list-group-item">User List</a>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="panel5">
+        <div class="panel-heading">
+          <span data-toggle="collapse" data-target="#collapse3" >
+             <h4 class="panel-title"> Widwrawl Requests
+        <span class="badge"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span>
+      </h4>
+    </span>
+        </div>
+        <div id="collapse3" class="collapse"  aria-expanded="false">
+        <a href="/admin/widwrawl" class="list-group-item">Active Widwrawls</a>
+        <a href="/admin/widwrawl/all" class="list-group-item">All widwrawls</a>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="panel4">
+        <div class="panel-heading">
+          <span data-toggle="collapse" data-target="#collapse4" >
+             <h4 class="panel-title"> Support
+        <span class="badge"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span>
+      </h4>
+    </span>
+        </div>
+        <div id="collapse4" class="collapse"  aria-expanded="false">
+        <a href="/admin/tickets" class="list-group-item">Support Tickets</a>
+        </div>
+    </div>
+  </div>
+  </div>

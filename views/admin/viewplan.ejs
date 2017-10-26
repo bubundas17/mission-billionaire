@@ -1,0 +1,68 @@
+<% include ../inc/header %>
+<div class="container">
+  <h1>Admin Area</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../inc/admincpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>View Plan</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+              <label>Pack name</label>
+              <p><%= plan.packName %></p>
+              <small class="form-text text-muted">Please Enter a good name for new plan.</small>
+            </div>
+            <div class="form-group">
+              <label>Disk Space</label>
+              <p><%= plan.diskQuota %></p>
+              <small class="form-text text-muted">Please Enter The Diskspace you want to allow..</small>
+            </div>
+            <div class="form-group">
+              <label>Mounthly Bandwidth</label>
+                 <p><%= plan.bandwidth %></p>
+              <small class="form-text text-muted">Please Enter The Bandwidth you want to allow..</small>
+            </div>
+            <div class="form-group">
+              <label>Max Domains</label>
+              <p><%= plan.maxDomains %></p>
+              <small class="form-text text-muted">Please Enter The Maximum ammount of domain the user can add.</small>
+            </div>
+            <div class="form-group">
+              <label>Price Per Mounth</label>
+              <p><%= plan.price %></p>
+              <small class="form-text text-muted">Please Enter The Maximum ammount of domain the user can add.</small>
+            </div>
+            <div class="form-group">
+              <label>Free SSL ?</label>
+              <p><%= plan.ssl %></p>
+              <small class="form-text text-muted">Specify either free ssl avilable or not.</small>
+            </div>
+            <div class="form-group">
+              <label>FFMPEG Support?</label>
+              <p><%= plan.ffmpeg %></p>
+              <small class="form-text text-muted">Specify either FFMPEG avilable or not.</small>
+            </div>
+            <div class="form-group">
+              <label>FileHosting Support?</label>
+              <p><%= plan.fileHosting %></p>
+              <small class="form-text text-muted">Specify either File Hosting avilable or not.</small>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <p><%= plan.description %></p>
+              <small class="form-text text-muted">Please Enter The Maximum ammount of domain the user can add.</small>
+            </div>
+            <a href="/admin/plans/<%= plan._id %>/edit" class="btn btn-success">Edit Plan</a>
+            <form action="/admin/plans/<%= plan._id %>?_method=delete" method="post" class="form-inline"><button class="btn btn-warning">Delete</button></form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include ../inc/footer %>

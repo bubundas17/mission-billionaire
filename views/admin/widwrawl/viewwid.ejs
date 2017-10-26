@@ -1,0 +1,61 @@
+<% include ../../inc/header %>
+<div class="container">
+  <h1>Client area</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../../inc/admincpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4>Generate Tokens</h4>
+        </div>
+        <div class="panel-body">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Withdrawal Info
+            </div>
+            <div class="panel-body">
+              <form action="" method="post">
+                <div class="list-group">
+                  <div class="list-group-item">
+                    <h4>User Info:</h4>
+                  <strong>Date And Time: <%= info.date %></strong> <br>
+                  <strong>Username: <a href="/admin/users/<%= info.user._id %>"><%= info.user.username %></a></strong> <br>
+                  <strong>Email: <a href="/admin/users/<%= info.user._id %>"><%= info.user.meta.email %></a></strong><br>
+                  <strong>Credits: <a href="/admin/users/<%= info.user._id %>"><%= info.user.credits.toFixed(3) %></a></strong><br>
+                  <strong>TKC Address: <a href="/admin/users/<%= info.user._id %>"><%= info.user.tkc %></a></strong></div>
+                  <div class="list-group-item">
+                    <h4>Widwrawl Info:</h4>
+                    <span>TKC Address: <%= info.tkcaddress %></span><br>
+                    <span>Amount: <%= info.amount %> TKC</span><br>
+                    <strong>Note: The Amount Is Already Deducted fron the user's Account</strong>
+                  </div>
+                  <div class="list-group-item">
+                    <label for="remarks">Remarks: (EG. Msg For End User)</label>
+                    <textarea name="remarks" id="" cols="30" rows="10" class="form-control"><%= info.remarks %></textarea>
+                  </div>
+                  <div class="list-group-item">
+                    <label for="status">Status of the request</label>
+                    <select type="text" name="status" class="form-control">
+                      <option value="<%= info.status %>"><%= info.status %></option>
+                      <option value="PROCESSING">Select...</option>
+                      <option value="SUCCEED">SUCCEED</option>
+                      <option value="FAILED">FAILED</option>
+                    </select>
+                  </div>
+                  <div class="list-group-item">
+                    <button class="btn btn-success">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include ../../inc/footer %>

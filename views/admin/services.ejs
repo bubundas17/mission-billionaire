@@ -1,0 +1,102 @@
+<% include ../inc/header %>
+<div class="container">
+  <h1>Admin Area</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <% include ../inc/admincpsider.ejs %>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h4>Add Or Manage Plans From Here.</h4>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <div class="jumbotron">
+              <h3>Add A New Plan</h3>
+              <hr>
+              <a href="/admin/plans/new" class="btn btn-success">Add A New Plan</a>
+            </div>
+
+            <div class="list-group-item">
+              <form class="form-inline" action="" method="get">
+                <div class="form-gtoup">
+                  <label for="Search">Search Users:</label>
+                  <input type="text" name="q" id="" class="form-control">
+                  <button class="form-control btn btn-info btn-sm" >Search</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-group-item">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>Package</th>
+                    <th>Domain</th>
+                    <th>status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% services.docs.forEach(function(service){ %>
+                    <tr>
+                      <td><%= service.user.username %></td>
+                  <td><%= service.service.package %></td>
+                      <td><%= service.service.domain %></td>
+                  <td><%= service.service.status %></td>
+                  <td><a href="/admin/services/<%= service._id %>" class="btn btn-info">View</a>
+                  <a href="/admin/services/<%= service._id %>/edit" class="btn btn-success">Edit</a>
+                  <a href="/admin/services/<%= service._id %>?_method=DESTROY" class="btn btn-warning">Delete</a></td>
+                  </tr>
+                <% }) %>
+                </tbody>
+              </table>
+            </div>
+    <div class="list-group-item">
+      <%
+      var q = req.query.q || "";
+      %>
+      <nav aria-label="Pagenation"  class="center">
+        <ul class="pagination">
+          <%if(services.page <= 1){ %>
+            <li class="disabled"><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <% } else { %>
+              <li><a href="?<%= func.objtoQuery({
+                q: q,
+                page: services.page-1
+              }) %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+              <% } %>
+
+              <% for(i=1; i<= services.pages; i++) { %>
+                <%if(services.page == i){ %>
+                  <li class="active"><a><%= i %><span class="sr-only">(current)</span></a></li>
+                  <% } else { %>
+                    <li><a href="?<%= func.objtoQuery({
+                      q: q,
+                      page: i
+                    }) %>" ><%= i %></a></li>
+                    <% } %>
+                    <% }%>
+
+
+                  <%if(services.page == services.pages){ %>
+                    <li class="disabled"><a aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    <% } else { %>
+                      <li><a href="?<%= func.objtoQuery({
+                        q: q,
+                        page: parseInt(services.page) + 1
+                      }) %>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                      <% } %>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ../inc/footer %>

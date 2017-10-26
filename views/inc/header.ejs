@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%- title %>
+  </title>
+  <link rel="stylesheet" href="\lib\css\bootstrap.min.css">
+  <link rel="stylesheet" href="\lib\css\font-awesome.min.css">
+  <link rel="stylesheet" href="\lib\css\animate.css">
+  <%# <link rel="stylesheet" href="\lib\css\mdb.min.css">%>
+    <link rel="stylesheet" href="\css\style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="\lib\js\jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js" integrity="sha256-yazfaIh2SXu8rPenyD2f36pKgrkv5XT+DQCDpZ/eDao=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><i class="fa fa-btc" aria-hidden="true"></i> tkc4you.com</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> About US</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if(!userInfo){ %>
+            <li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+            <li><a href="/signup"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a></li>
+            <% } else if(userInfo.isAdmin == false){ %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%= userInfo.name %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
+                  <li><a href="/clientarea"><i class="fa fa-cogs" aria-hidden="true"></i> Client Area</a></li>
+                </ul>
+              </li>
+              <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+              <% } else if(userInfo.isAdmin == true){ %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%= userInfo.name %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
+                    <li><a href="/clientarea"><i class="fa fa-cogs" aria-hidden="true"></i> Client Area</a></li>
+                    <li><a href="/admin"><i class="fa fa-unlock" aria-hidden="true"></i> Admin Panel</a></li>
+                  </ul>
+                </li>
+                <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                <% } %>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <% if (messages.success) { %>
+    <script type="text/javascript" src="\lib\js\notify.min.js">
+    </script>
+    <script type="text/javascript">
+      $.notify({
+        // options
+        message: '<%- messages.success %>'
+      }, {
+        // settings
+        type: 'success',
+        placement: {
+          from: "top",
+          align: "left"
+        }
+      });
+    </script>
+    <% } %>
+      <% if (messages.info) { %>
+        <script type="text/javascript" src="\lib\js\notify.min.js">
+        </script>
+        <script type="text/javascript">
+          $.notify({
+            // options
+            message: '<%- messages.info %>'
+          }, {
+            // settings
+            type: 'info',
+            placement: {
+              from: "top",
+              align: "left"
+            }
+          });
+        </script>
+        <% } %>
+          <% if (messages.warning) { %>
+            <script type="text/javascript" src="\lib\js\notify.min.js">
+            </script>
+            <script type="text/javascript">
+              $.notify({
+                // options
+                message: '<%- messages.warning %>'
+              }, {
+                // settings
+                type: 'warning',
+                placement: {
+                  from: "top",
+                  align: "left"
+                }
+              });
+            </script>
+            <% } %>
+              <% if (messages.error) { %>
+                <script type="text/javascript" src="\lib\js\notify.min.js">
+                </script>
+                <script type="text/javascript">
+                  $.notify({
+                    // options
+                    message: '<%- messages.error %>'
+                  }, {
+                    // settings
+                    type: 'danger',
+                    placement: {
+                      from: "top",
+                      align: "left"
+                    }
+                  });
+                </script>
+                <% } %>

@@ -1,0 +1,56 @@
+<% include ../inc/header %>
+  <div class="container">
+    <h1>Profile</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <% include ../inc/usercpsider.ejs %>
+      </div>
+      <div class="col-md-8">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h4>Edit Your Profile</h4>
+          </div>
+          <div class="panel-body">
+            <div class="list-group">
+              <form class="" action="/profile/chengepass" method="post" id="chengepass">
+                <div class="list-group-item">
+                  <input type="password" name="oldpass" placeholder="Old Password" class="form-control" id="oldpass">
+                </div>
+                <div class="list-group-item">
+                  <input type="password" name="newpass" placeholder="New Password" class="form-control" id="newpassword">
+                </div>
+                <div class="list-group-item">
+                  <input type="password" name="confirmpass" placeholder="Confirm Password" class="form-control" id="confirmpassword">
+                </div>
+                <div class="list-group-item">
+                  <button name="button" class="btn btn-success" onClick="validatePassword()">Chenge</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  $( "#chengepass" ).submit(function( event ) {
+    var validator = $("#chengepass").validate({
+      rules: {
+        oldpass: "required",
+        newpass: "required",
+        confirmpass: {
+          equalTo: "#newpassword"
+        }
+      },
+      messages: {
+        password: " Enter Password",
+        confirmpassword: " Enter Confirm Password Same as Password"
+      }
+    });
+    if (validator.form()) {
+      $("#chengepass").submit();
+    }
+    event.preventDefault();
+  });
+  </script>
+  <% include ../inc/footer %>
