@@ -209,45 +209,20 @@ router.get('/logout', middlewares.ifLoggedIn, function(req, res) {
 
 // Sign Up Routs
 router.get('/signup', middlewares.ifNotLoggedIn, function(req, res) {
-  if (req.query.refer) {
-    userDB.findOne({
-      username: req.query.refer
-    })
-    .then( user => {
-      if (user) {
-        var sess = req.session;
-        res.locals.title = 'Create A New Account' + " - " + res.locals.title;
-        return res.render('auth/signup.ejs');
-      } else {
-        req.flash('error', 'Please Enter A Valied User.');
-        return res.redirect('back');
-      }
-    })
-    .catch( err => {
-      req.flash('error', 'Somthing Is Wents wrong.');
-      console.log(err);
-      return res.redirect('back');
-    })
-  } else {
-    res.locals.title = 'Create A New Account' + " - " + res.locals.title;
-    return res.render('auth/refer.ejs');
-  }
-
+  res.locals.title = 'Create A New Account' + " - " + res.locals.title;
+  return res.render('auth/signup.ejs');
 });
 
 // Registering User.
 router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, function(req, res) {
   // Getting User Information from submitted data.
-  var referedBy   = req.query.refer
-  var username    = req.body.username.toLowerCase();
-  var password    = req.body.password;
-  var name        = req.body.name;
-  var email       = req.body.email;
-  var phone       = req.body.phone;
-  var dateOfBarth = req.body.dateOfBarth;
-  var country     = req.body.country;
-  var state       = req.body.state;
-  var tkc         = req.body.bitcoin;
+  var username = req.body.username.toLowerCase();
+  var password = req.body.password;
+  var name = req.body.name;
+  var email = req.body.email;
+  var phone = req.body.phone;
+
+
   // Password Encryption Logic
   var salt = func.createSalt();
   var hash = func.password(password, salt);
@@ -255,67 +230,31 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, funct
   // session
   var sess = req.session;
 
-    if (! referedBy) {
-      req.flash('error', 'Refered by user not defined!')
-      return res.redirect('back');
-    }
+  // Checking If Submited Data Valied
+  if (username && name && password) {
 
-  userDB.findOne({username: referedBy})
-    .then( ref => {
-      if (! ref) {
-        req.flash('error', 'Invalied Referd User!')
-        return res.redirect('back');
-      }
-    var upTree = ref.upTree;
-    upTree.unshift(ref._id)
-    upTree.splice(10, ref.upTree.length)
-    console.log(upTree);  // TODO: Remove Itr later.
-      // Ok... User found!
-      // Checking If Submited Data Valied
-      if (username && name && password) {
-
-        // If everything is ok, Try to create a new user.
-        userDB.create({
-          name: name,
-          username: username,
-          meta: {
-            email: email,
-            phone: phone,
-            dateOfBarth: dateOfBarth,
-            address: {
-              country: country,
-              state: state,
-            }
-          },
-          referedBy: ref,
-          upTree: upTree,
-          tkc: tkc,
-          password: hash, // Storing Hashed password instead of actual password.
-          salt: salt // Storing Salt for later password generation prosses.
-        }, function(err, user) {
-          if (err) {
-            req.flash('error', 'Username already exlished');
-            return res.redirect('/signup');
-          }
-          req.flash('info', 'Signup Done. Welcome to our famally')
-          res.redirect('/');
-        })
-      } else {
-        req.flash('error', 'all fields Are required')
-        res.redirect('back');
+    // If everything is ok, Try to create a new user.
+    userDB.create({
+      name: name,
+      username: username,
+      meta: {
+        email: email,
+        phone: phone,
+      },
+      password: hash, // Storing Hashed password instead of actual password.
+      salt: salt // Storing Salt for later password generation prosses.
+    }).then(user =>  {
+      if (err) {
+        req.flash('error', 'Username already exlished');
+        return res.redirect('/signup');
       }
 
+      // console.log(user);
+      // Storing User Information in session.
+      req.flash('info', 'Signup Done. Welcome to our famally')
+      res.redirect('/');
     })
-    .catch( err => {
-      //Upps! Somthing wents Wrong!
-      console.log(err);
-      req.flash('error', 'all fields Are required')
-      res.redirect('back');
-    })
-
-
-
-
+  }
 });
 
 module.exports = router;

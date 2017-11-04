@@ -12,4 +12,5 @@ var Schema    = new mongoose.Schema({
   status: String,
   date: {type:Date, default: Date.now}
 });
+
 module.exports  = mongoose.model('Invoice', Schema);

@@ -1,4 +1,3 @@
-var servicesDB = require('../models/services');
 var BruteForceDB = require('../models/BruteForceSchema.js');
 var request = require('request');
 var ExpressBrute = require('express-brute');

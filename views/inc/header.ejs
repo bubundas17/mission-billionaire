@@ -1,138 +1,138 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
-  <title>
-    <%- title %>
-  </title>
-  <link rel="stylesheet" href="\lib\css\bootstrap.min.css">
-  <link rel="stylesheet" href="\lib\css\font-awesome.min.css">
-  <link rel="stylesheet" href="\lib\css\animate.css">
-  <%# <link rel="stylesheet" href="\lib\css\mdb.min.css">%>
-    <link rel="stylesheet" href="\css\style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="\lib\js\jquery.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js" integrity="sha256-yazfaIh2SXu8rPenyD2f36pKgrkv5XT+DQCDpZ/eDao=" crossorigin="anonymous"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%- title %></title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="/bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<body class="hold-transition skin-black sidebar-collapse">
+<div class="wrapper">
 
-<body>
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>M</b>BR</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>MBR</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top sidebar-collapse">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><i class="fa fa-btc" aria-hidden="true"></i> tkc4you.com</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> About US</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <% if(!userInfo){ %>
-            <li><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-            <li><a href="/signup"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a></li>
-            <% } else if(userInfo.isAdmin == false){ %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%= userInfo.name %> <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
-                  <li><a href="/clientarea"><i class="fa fa-cogs" aria-hidden="true"></i> Client Area</a></li>
-                </ul>
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <% if(userInfo){ %>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="https://www.gravatar.com/avatar/<%- md5(userInfo.meta.email).toString() %>" class="user-image" alt="<%= userInfo.name %>">
+              <span class="hidden-xs"><strong><%= toTitleCase(userInfo.username) %></strong></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="https://www.gravatar.com/avatar/<%- md5(userInfo.meta.email).toString() %>" class="img-circle" alt="User Image">
+
+                <p>
+                  <small><%= toTitleCase(userInfo.name) %></small>
+                  <small><%= userInfo.meta.phone %></small>
+                </p>
               </li>
-              <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-              <% } else if(userInfo.isAdmin == true){ %>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%= userInfo.name %> <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
-                    <li><a href="/clientarea"><i class="fa fa-cogs" aria-hidden="true"></i> Client Area</a></li>
-                    <li><a href="/admin"><i class="fa fa-unlock" aria-hidden="true"></i> Admin Panel</a></li>
-                  </ul>
-                </li>
-                <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/clientarea" class="btn btn-primary btn-flat btn-xs">Dashboard</a>
+                </div>
+                <div class="pull-left">
+                  <a href="/profile" class="btn btn-danger btn-flat btn-xs">Profile</a>
+                </div>
+                <% if(userInfo.isAdmin){ %>
+                <div class="pull-left">
+                <a href="/admin" class="btn btn-success btn-flat btn-xs">Admin CP</a>
+                </div>
                 <% } %>
+                <div class="pull-right">
+                  <a href="/logout" class="btn btn-info btn-flat btn-xs">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <% } else { %>
+
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="dist/img/user-150x150.png" class="user-image" alt="User Image">
+                <span class="hidden-xs">User</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img src="https://www.gravatar.com/avatar/<%- md5("example@example.com").toString() %>" class="img-circle" alt="User Image">
+
+                  <p>
+                    <small>Please Login to your account!</small>
+                  </p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="/login" class="btn btn-default btn-flat">Login</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="/signup" class="btn btn-default btn-flat">Sign Up</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+        <%  } %>
+            </ul>
+          </li>
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-  <% if (messages.success) { %>
-    <script type="text/javascript" src="\lib\js\notify.min.js">
-    </script>
-    <script type="text/javascript">
-      $.notify({
-        // options
-        message: '<%- messages.success %>'
-      }, {
-        // settings
-        type: 'success',
-        placement: {
-          from: "top",
-          align: "left"
-        }
-      });
-    </script>
-    <% } %>
-      <% if (messages.info) { %>
-        <script type="text/javascript" src="\lib\js\notify.min.js">
-        </script>
-        <script type="text/javascript">
-          $.notify({
-            // options
-            message: '<%- messages.info %>'
-          }, {
-            // settings
-            type: 'info',
-            placement: {
-              from: "top",
-              align: "left"
-            }
-          });
-        </script>
-        <% } %>
-          <% if (messages.warning) { %>
-            <script type="text/javascript" src="\lib\js\notify.min.js">
-            </script>
-            <script type="text/javascript">
-              $.notify({
-                // options
-                message: '<%- messages.warning %>'
-              }, {
-                // settings
-                type: 'warning',
-                placement: {
-                  from: "top",
-                  align: "left"
-                }
-              });
-            </script>
-            <% } %>
-              <% if (messages.error) { %>
-                <script type="text/javascript" src="\lib\js\notify.min.js">
-                </script>
-                <script type="text/javascript">
-                  $.notify({
-                    // options
-                    message: '<%- messages.error %>'
-                  }, {
-                    // settings
-                    type: 'danger',
-                    placement: {
-                      from: "top",
-                      align: "left"
-                    }
-                  });
-                </script>
-                <% } %>
+    </nav>
+  </header>
+  <%
+  function toTitleCase(str)
+  {
+      return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  }
+  %>

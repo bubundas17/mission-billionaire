@@ -25,7 +25,7 @@ config.database = {
 
 // Google recaptcha Configration.
 config.recaptcha = {
-  secret: "6Lfm3jUUAAAAALKn3Wbs0RLrKWmij0snwOpcHBT3"
+  secret: "6Lcz3ikUAAAAAEruySQzyO2AvBjaPhSiWDSQtKnC"
 }
 
 // BruteForce Module.

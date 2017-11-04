@@ -1,11 +1,7 @@
-<% include ../inc/header %>
-  <div class="container">
-    <h1>Profile</h1>
-      <div class="row">
-        <div class="col-md-4">
-          <% include ../inc/usercpsider.ejs %>
-        </div>
-        <div class="col-md-8">
+<% include ../inc/usercpHead %>
+<% include ../inc/admincpsider %>
+<div class="content-wrapper">
+  <main class="content-header">
           <div class="panel panel-info">
             <div class="panel-heading">
               <h4>Your Profile Info</h4>
@@ -53,7 +49,6 @@
               <a href="/profile/chengepass" class="btn btn-info"> Chenge Password</a>
             </div>
         </div>
-      </div>
-  </div>
-</div>
-<% include ../inc/footer %>
+      </main>
+    </div>
+    <% include ../inc/footer %>

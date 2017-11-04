@@ -42,13 +42,6 @@ var le = require('greenlock').create({
   },
 });
 
-// sysinfoDB.findOne({
-//   name: "Tkc4you"
-// })
-//   .then( info => {
-//     info.dailyIncome = 500;
-//     info.save()
-//   })
 
 // func.giveDailyIncome()
 
@@ -99,8 +92,6 @@ passport.use(new LocalStrategy(
   }
 ));
 
-// Payment Gateway
-// Insta.init('b92146b89093e7388d3735fa449ad863', 'ea21d88c453bb26e203babdc020e89f7', true);
 
 Insta.setKeys(config.instaMojo.apiKey, config.instaMojo.authKey);
 Insta.isSandboxMode(config.instaMojo.sandbox); // Test Mode
@@ -135,14 +126,14 @@ app.get('*', (req, res) => {
 })
 
 
-// app.listen(3000, ()=> {
-//   console.log("Running The Server");
+app.listen(3000, ()=> {
+  console.log("Running The Server");
+})
+
+// http.createServer(le.middleware(redirectHttps())).listen(80, function() {
+//   console.log("Server Running On http" + 80);
 // })
-
-http.createServer(le.middleware(redirectHttps())).listen(80, function() {
-  console.log("Server Running On http" + 80);
-})
-
-https.createServer(le.httpsOptions, le.middleware(app)).listen(443, function() {
-  console.log("Server Running On https" + 443);
-})
+//
+// https.createServer(le.httpsOptions, le.middleware(app)).listen(443, function() {
+//   console.log("Server Running On https" + 443);
+// })

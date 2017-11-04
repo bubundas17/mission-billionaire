@@ -6,7 +6,6 @@ var config            = require('../config')
 // Databases.
 var userDB            = require('../models/user')
 var statementDB       = require('../models/statement')
-var servicesDB        = require('../models/services');
 var ReferialincomeBD  = require('../models/referialincome')
 var sysinfoDB         = require('../models/sysinfo')
 var nonworkingIncomeDB  = require('../models/nonworkingincome')
@@ -283,6 +282,7 @@ func.global = function(req, res, next){
   res.locals.func = func;
   res.locals.query = req.query;
   res.locals.title = "Tkc4you.com";
+  res.locals.md5 = md5;
   res.locals.req = req;
   res.locals.res = res;
   if (req.user) {
