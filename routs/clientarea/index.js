@@ -9,12 +9,13 @@ const config        = require('../../config.js')
 // routes
 const statementRoutes = require('./statement')
 const ticketsRoutes   = require('./tickets.js')
+const referralRouts   = require('./referral.js')
 router.get('/', middlewares.ifLoggedIn, function(req, res) {
-      func.upgradeUser(req.user.id)
       res.render("clientarea/index.ejs");
 })
 
 router.use('/statement', statementRoutes)
 router.use('/tickets', ticketsRoutes)
+router.use('/referral', referralRouts)
 
 module.exports = router;
