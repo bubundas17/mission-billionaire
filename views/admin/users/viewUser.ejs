@@ -1,13 +1,7 @@
-<% include ../../inc/header %>
-<div class="container">
-  <h1>Admin Area</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% include ../../inc/admincpsider.ejs %>
-    </div>
-    <div class="col-md-8">
+<% include ../../inc/usercpHead %>
+<% include ../../inc/admincpsider %>
+<div class="content-wrapper">
+  <main class="content-header">
       <div class="panel panel-info">
         <div class="panel-heading">
           <h4>User List</h4>
@@ -63,7 +57,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
-</div>
 <% include ../../inc/footer %>
