@@ -1,23 +1,25 @@
-var leclg 					= require('le-challenge-fs');
-var lestore 				= require('le-store-certbot');
-var express		 			= require('express');
-var mongoose	 			= require('mongoose');
-var bodyParser			=	require('body-parser');
-var methodOverride	=	require('method-override');
-var sessions				= require('express-session');
-var func          	= require('./includs/func');
-var flash 					= require('express-flash');
-var minify					= require('express-minify');
-var compression 		= require('compression');
-var cookieParser    = require('cookie-parser');
-const http          = require('http');
-const https         = require('https');
-const redirectHttps = require('redirect-https')
-const passport      = require('passport');
-const LocalStrategy = require('passport-local');
-const userDB        = require('./models/user.js')
-var Insta           = require('instamojo-nodejs');
-const sysinfoDB     = require('./models/sysinfo')
+var leclg 			  = require('le-challenge-fs');
+var lestore 		  = require('le-store-certbot');
+var express		 	  = require('express');
+var mongoose	 	  = require('mongoose');
+var bodyParser		  =	require('body-parser');
+var methodOverride	  =	require('method-override');
+var sessions		  = require('express-session');
+var func          	  = require('./includs/func');
+var flash 			  = require('express-flash');
+var minify			  = require('express-minify');
+var compression 	  = require('compression');
+var cookieParser      = require('cookie-parser');
+const http            = require('http');
+const https           = require('https');
+const redirectHttps   = require('redirect-https')
+const passport        = require('passport');
+const LocalStrategy   = require('passport-local');
+const userDB          = require('./models/user.js')
+var Insta             = require('instamojo-nodejs');
+const sysinfoDB       = require('./models/sysinfo')
+
+
 // app.use(require('serve-static')(__dirname + '/../../public'));
 // app.use(require('body-parser').urlencoded({ extended: true }));
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
@@ -58,8 +60,6 @@ app.use(cookieParser());
 app.use(sessions(config.sessions));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 
 // Passport Setups

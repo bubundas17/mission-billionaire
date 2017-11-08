@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "authbind node app.js"
+    "start": "authbind node app.js",
+    "run": "node app.js"
+
   },
   "author": "Bubun Das <bubundas17@gmail.com> (https://bubundas17.me)",
   "license": "ISC",

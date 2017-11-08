@@ -10,13 +10,12 @@ var userListPerPage = 10;
 router.get('/', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
   var query = req.query.q || ".*"
   userDB.paginate({ $or: [
-
       {
         username: { "$regex": query + "", "$options": "i" }
       }, {
         name: { "$regex": query + "", "$options": "i" }
       }
-    
+
     ]
   }, {
      page: req.query.page || 1,
@@ -121,10 +120,9 @@ router.get('/:id/edit', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) 
       res.render("admin/users/editUser.ejs", {user: user})
     })
     .catch( err => {
-      req.flash('error', 'Somthing Is Wents Wrong! Please Contact To Bubun. :D')
+      req.flash('error', 'Somthing Is Wents Wrong! Please Contact Admin.')
       console.error(err);
       return  res.redirect('back');
-
     })
 })
 

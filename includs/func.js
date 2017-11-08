@@ -205,51 +205,6 @@ func.getTxnId = function(date){
 };
 
 
-func.renewService = function(service, callback){
-  servicesDB.findById(service._id,)
-    .populate("user")
-    .exec( (err, srv) => {
-      if (err) {
-        return callback(err, null)
-      }
-
-      if (srv.user.credits >= srv.service.renewalCost) {
-        // User Can Be Charged!
-        srv.user.credits -= srv.service.renewalCost;
-        srv.user.save( err => {
-          if (err) {
-            console.log(err);
-          }
-        })
-        srv.service.lastRenewed = new Date();
-        srv.service.nextRenewal.setDate( srv.service.nextRenewal.getDate() +  parseInt(srv.service.renewsIn) ); // Old Method
-        // srv.service.nextRenewal = new Date( new Date(srv.service.nextRenewal) + ( parseInt(srv.service.renewsIn) * 24 * 60 * 60 * 1000 )); // Next One
-        // console.log(srv.service.nextRenewal);
-        // srv.service.nextRenewal =  new Date( srv.service.nextRenewal.getTime() + ( srv.service.renewsIn * 24 * 60 * 60 * 1000));
-        // console.log(srv);
-        srv.save( err => {
-          if (err) {
-            console.log(err);
-            return callback(err, null)
-            return console.error(err);
-          }
-        })
-        callback(null, srv)
-      } else {
-        srv.service.status = "DUE"
-        srv.save( err => {
-          if (err) {
-            console.log(err);
-            return callback(err, null)
-            // return console.error(err);
-          }
-        })
-        callback({error: "User Do Not Have Enough Credits."}, srv)
-      }
-    })
-}
-
-
 func.formatDate = (date) => {
   year = date.getFullYear();
   month = date.getMonth()+1;
@@ -303,4 +258,33 @@ func.timeDifference = (current, previous) => {
     }
 }
 
+
+func.getReferableUser = (user, callback) => {
+  return new Promise((resolve, reject) => {
+    if (user.totalReferred <= 2) {
+      // User Can add musers to his downstreem.
+      resolve(user);
+      return callback(null, user);
+    }
+
+    return userDB.findOne({upTree: user._id, totalReferred: {$lt: 2}})
+      .then((value) => {
+        if (value) {
+          resolve(value)
+          return callback(null, value);
+        }
+        return userDB.findOne({totalReferred: {$lt: 2}})
+      })
+      .then((value) => {
+        if (value) {
+          resolve(value)
+          return callback(null, value);
+        }
+      })
+      .catch((err) => {
+        reject(err)
+        return callback(err, null);
+      })
+  })
+}
 module.exports  = func;
