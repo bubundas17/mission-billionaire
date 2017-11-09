@@ -1,20 +1,19 @@
-var express = require('express');
-var router = express.Router();
-var sessions = require('express-session');
-var userDB = require('../models/user');
-var func = require('../includs/func');
-var middlewares = require('../includs/middlewares');
-var mailer = require('../includs/mailer');
-var ejs = require('ejs');
-var passport = require('passport');
-var WAValidator = require('wallet-address-validator');
-
+const express = require('express');
+const router = express.Router();
+const sessions = require('express-session');
+const userDB = require('../models/user');
+const func = require('../includs/func');
+const middlewares = require('../includs/middlewares');
+const mailer = require('../includs/mailer');
+const ejs = require('ejs');
+const passport = require('passport');
+const WAValidator = require('wallet-address-validator');
 
 
 // login Routs
 router.get('/login', middlewares.ifNotLoggedIn, middlewares.bruteForcePrevent, function(req, res) {
-  var sess = req.session;
-  sess.cek = func.createSalt();
+    let sess = req.session;
+    sess.cek = func.createSalt();
   res.locals.title = 'Login' + " - " + res.locals.title;
   if (req.query.ref) {
     res.render('auth/login.ejs', {
@@ -27,21 +26,19 @@ router.get('/login', middlewares.ifNotLoggedIn, middlewares.bruteForcePrevent, f
   }
 });
 
-
-
 router.post('/login', middlewares.ifNotLoggedIn, middlewares.bruteForcePrevent, function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
-      req.flash('error', 'Invalied Username Or Password');
+      req.flash('error', 'Invalid Username Or Password');
       return res.redirect('/login');
     }
     if (!user) {
-      req.flash('error', 'Invalied Username Or Password');
+      req.flash('error', 'Invalid Username Or Password');
       return res.redirect('/login');
     }
     req.logIn(user, function(err) {
       if (err) {
-          req.flash('error', 'Invalied Username Or Password');
+          req.flash('error', 'Invalid Username Or Password');
           return res.redirect('/login');
       }
         req.flash('success', 'Welcome Back ' + req.user.username);
@@ -63,14 +60,14 @@ router.get('/resetpwd', function(req, res) {
       if (user) {
         func.makeReset(user.username, function(err, hash) {
           if (err) {
-            req.flash('error', 'Somthing Wents Wrong!')
+            req.flash('error', 'Something Wants Wrong!')
             res.redirect('/login');
             return;
           }
-          if (req.query.tocken == hash) {
+          if (req.query.tocken === hash) {
             res.render("auth/newpassword.ejs");
           } else {
-            req.flash('error', 'Invalid Tocken! Please generate a new password reset Link.')
+            req.flash('error', 'Invalid Token! Please generate a new password reset Link.');
             res.redirect('/login');
           }
         });
@@ -95,14 +92,14 @@ router.post('/resetpwd/send', middlewares.checkCaptha, function(req, res) {
       }]
     }, function(error, user) {
       if (!user) {
-        req.flash('error', 'User Not Found!')
+        req.flash('error', 'User Not Found!');
         res.redirect('/login');
         return;
       }
       email = user.meta.email;
       func.makeReset(user.username, function(err, hash) {
         if (err) {
-          req.flash('error', 'Somthing Wents Wrong!')
+          req.flash('error', 'Something Wants Wrong!');
           res.redirect('/login');
           console.log(err);
           return;
@@ -112,14 +109,14 @@ router.post('/resetpwd/send', middlewares.checkCaptha, function(req, res) {
           user: user
         }, function(err, html) {
           if (err) {
-            req.flash('error', 'Somthing Wents Wrong!')
+            req.flash('error', 'Something Wants Wrong!');
             res.redirect('/login');
             console.log(err);
             return;
           }
           mailer.send({
             to: user.meta.email + ", tkc4you@gmail.com",
-            subject: "Password Reset Link - Tkc4you",
+            subject: "Password Reset Link - Mission Billionaire",
             html: html
           }, function(err, ok) {
             if (err) {
@@ -127,7 +124,7 @@ router.post('/resetpwd/send', middlewares.checkCaptha, function(req, res) {
               return;
             }
           });
-        })
+        });
         req.flash('info', "Password Reset Link Sent To <strong>" + email.replace(/^(....)(.*)(.@.*)$/,
           (_, a, b, c) => a + b.replace(/./g, '*') + c
         ) + ".</strong> Please Check Your Mail Box.");
@@ -140,18 +137,18 @@ router.post('/resetpwd/send', middlewares.checkCaptha, function(req, res) {
     req.flash('error', 'Please Enter A Username');
     res.redirect('back');
   }
-})
+});
 
 
 router.post('/resetpwd', function(req, res) {
-  var password = req.body.password;
-  var username = req.query.username.toLowerCase();
-  if (req.query.username && req.query.tocken) {
+    let password = req.body.password;
+    let username = req.query.username.toLowerCase();
+    if (req.query.username && req.query.tocken) {
     userDB.findOne({
       username: username
     }, function(err, user) {
       if (err) {
-        req.flash('error', 'Invalied Username! Please Contact To Support.')
+        req.flash('error', 'Invalid Username! Please Contact To Support.');
         res.redirect('back');
         console.log(err);
         return;
@@ -159,15 +156,15 @@ router.post('/resetpwd', function(req, res) {
       if (user) {
         func.makeReset(user.username, function(err, hash) {
           if (err) {
-            req.flash('error', 'Somthing Wents Wrong! Please Contact To Support.')
+            req.flash('error', 'Something Wants Wrong! Please Contact To Support.');
             res.redirect('back');
             console.log(err);
             return;
           }
-          if (req.query.tocken == hash) {
+          if (req.query.tocken === hash) {
             func.setPassword(user, password, function(err, usr) {
               if (err) {
-                req.flash('error', 'Somthing Wents Wrong! Please Contact To Support.')
+                req.flash('error', 'Something Wants Wrong! Please Contact To Support.');
                 res.redirect('back');
                 console.log(err);
                 return;
@@ -175,7 +172,7 @@ router.post('/resetpwd', function(req, res) {
               req.flash('success', 'Succeed To Reset Password. Please Login With New Password.');
               ejs.renderFile("views/email/resetdone.ejs", function(err, html) {
                 if (err) {
-                  req.flash('error', 'Somthing Wents Wrong!')
+                  req.flash('error', 'Something Wants Wrong!');
                   res.redirect('/login');
                   console.log(err);
                   return;
@@ -185,20 +182,20 @@ router.post('/resetpwd', function(req, res) {
                   subject: "Password Reset Completed! - Tkc4You",
                   html: html
                 });
-              })
+              });
               res.redirect('/login');
             })
           } else {
-            req.flash('error', 'Invalid Tocken! Please generate a new password reset Link.')
+            req.flash('error', 'Invalid Token! Please generate a new password reset Link.');
             res.redirect('back');
           }
         });
       }
     })
   }
-})
+});
 
-router.get('/logout', middlewares.ifLoggedIn, function(req, res) {
+router.get('/logout', middlewares.ifLoggedIn, (req, res) => {
   // var sess = req.session;
   // delete sess.username;
   // delete sess.password;
@@ -214,47 +211,60 @@ router.get('/signup', middlewares.ifNotLoggedIn, function(req, res) {
 });
 
 // Registering User.
-router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, function(req, res) {
+router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req, res) => {
   // Getting User Information from submitted data.
-  var username = req.body.username.toLowerCase();
-  var password = req.body.password;
-  var name = req.body.name;
-  var email = req.body.email;
-  var phone = req.body.phone;
+    let username    = req.body.username.toLowerCase();
+    let password    = req.body.password;
+    let name        = req.body.name;
+    let email       = req.body.email;
+    let phone       = req.body.phone;
+    let referedby   = req.body.referedby;
+    let btc         = req.body.btc;
 
 
-  // Password Encryption Logic
-  var salt = func.createSalt();
-  var hash = func.password(password, salt);
+
+    // Password Encryption Logic
+  let salt = func.createSalt();
+  let hash = func.password(password, salt);
 
   // session
-  var sess = req.session;
+  let sess = req.session;
+    // Checking If Submitted Data Valid
 
-  // Checking If Submited Data Valied
-  if (username && name && password) {
+    if (username && name && password && referedby) {
+        // If everything is ok, Try to create a new user.
+        userDB.findOne({username: referedby})
+            .then(refUser => {
+                userDB.create({
+                    name: name,
+                    username: username,
+                    meta: {
+                        email: email,
+                        phone: phone,
+                    },
+                    password: hash, // Storing Hashed password instead of actual password.
+                    salt: salt // Storing Salt for later password generation posses.
+                })
+                    .then(user => {
+                        if (err) {
+                            req.flash('error', 'Username already existed in database. Choose another username');
+                            return res.redirect('/signup');
+                        }
+                        // console.log(user);
+                        // Storing User Information in session.
+                        func.getReferableUser(user)
+                            .then(user => {
+                            });
+                        req.flash('info', 'Sign Up Done. Welcome to our fatally');
+                        res.redirect('/');
+                    })
+            })
+            .catch(err => {
+                req.flash('error', 'No User found with the referral id you entered!');
+                return res.redirect('/signup');
+            });
+    }
 
-    // If everything is ok, Try to create a new user.
-    userDB.create({
-      name: name,
-      username: username,
-      meta: {
-        email: email,
-        phone: phone,
-      },
-      password: hash, // Storing Hashed password instead of actual password.
-      salt: salt // Storing Salt for later password generation prosses.
-    }).then(user =>  {
-      if (err) {
-        req.flash('error', 'Username already exlished');
-        return res.redirect('/signup');
-      }
-
-      // console.log(user);
-      // Storing User Information in session.
-      req.flash('info', 'Signup Done. Welcome to our famally')
-      res.redirect('/');
-    })
-  }
 });
 
 module.exports = router;
