@@ -139,7 +139,6 @@ router.post('/resetpwd/send', middlewares.checkCaptha, function(req, res) {
   }
 });
 
-
 router.post('/resetpwd', function(req, res) {
     let password = req.body.password;
     let username = req.query.username.toLowerCase();
@@ -228,43 +227,55 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
   let hash = func.password(password, salt);
 
   // session
-  let sess = req.session;
     // Checking If Submitted Data Valid
 
     if (username && name && password && referedby) {
         // If everything is ok, Try to create a new user.
         userDB.findOne({username: referedby})
-            .then(refUser => {
-                userDB.create({
-                    name: name,
-                    username: username,
-                    meta: {
-                        email: email,
-                        phone: phone,
-                    },
-                    password: hash, // Storing Hashed password instead of actual password.
-                    salt: salt // Storing Salt for later password generation posses.
-                })
-                    .then(user => {
-                        if (err) {
-                            req.flash('error', 'Username already existed in database. Choose another username');
-                            return res.redirect('/signup');
-                        }
-                        // console.log(user);
-                        // Storing User Information in session.
-                        func.getReferableUser(user)
+            .then( refUser => {
+                if(!refUser){
+                    req.flash('error', 'No User found with the referral id you entered!');
+                    return res.redirect('/signup');
+                }
+
+
+                func.getReferableUser(refUser)
+                // refUser is the user who referred the user  and downUser is who the user should join to.
+                    .then( downUser => {
+                        userDB.create({
+                            name: name,
+                            username: username,
+                            meta: {
+                                email: email,
+                                phone: phone,
+                            },
+                            referedBy: refUser,
+                            password: hash, // Storing Hashed password instead of actual password.
+                            salt: salt,
+                            bitcoin: btc// Storing Salt for later password generation posses.
+                        })
                             .then(user => {
-                            });
-                        req.flash('info', 'Sign Up Done. Welcome to our fatally');
-                        res.redirect('/');
+                                let upTree = downUser.upTree;
+                                upTree.unshift(downUser._id);
+                                upTree.splice(10, downUser.upTree.length);
+                                user.upTree = upTree;
+                                downUser.totalReferred += 1;
+                                downUser.save();
+                                user.save();
+                                req.flash('info', 'Sign Up Done. Welcome to our fatally');
+                                res.redirect('/');
+                            })
                     })
+                    .catch(err => {
+                        req.flash('error', 'Database Error! Please Contact to site admin.');
+                        return res.redirect('/signup');
+                    });
             })
             .catch(err => {
                 req.flash('error', 'No User found with the referral id you entered!');
                 return res.redirect('/signup');
             });
     }
-
 });
 
 module.exports = router;

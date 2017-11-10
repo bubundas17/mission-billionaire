@@ -33,7 +33,30 @@
   <div class="register-logo">
     <a href="/"><b>Mission Millinoure</b></a>
   </div>
-
+    <% if (messages.success) { %>
+  <div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <%- messages.info %>
+  </div>
+    <% } %>
+    <% if (messages.info) { %>
+  <div class="alert alert-info">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <%- messages.info %>
+  </div>
+    <% } %>
+    <% if (messages.warning) { %>
+  <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <%- messages.warning %>
+  </div>
+    <% } %>
+    <% if (messages.error) { %>
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <%- messages.error %>
+  </div>
+    <% } %>
   <div class="register-box-body">
     <p class="login-box-msg">Register an new Account</p>
 
