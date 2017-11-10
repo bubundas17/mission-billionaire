@@ -1,106 +1,113 @@
 <% include ../../inc/usercpHead %>
 <% include ../../inc/admincpsider %>
 <div class="content-wrapper">
-  <main class="content-header">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h4>Edit User</h4>
+    <main class="content-header">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>Edit User</h4>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <form class="form-inline" action="/admin/users/<%= user._id %>?_method=put&type=password"
+                              method="post">
+                            <div class="form-group">
+                                <small>New Password:</small>
+                                <input type="text" name="password" value="" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success">Set</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="list-group-item">
+                        <form class="form-inline" action="/admin/users/<%= user._id %>?_method=put&type=credits"
+                              method="post">
+                            <div class="form-group">
+                                <small>Edit Credits:</small>
+                                <input type="number" name="credits" value="<%= user.credits %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success">Chenge</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="list-group-item">
+                        <form class="" action="/admin/users/<%= user._id %>?_method=put&type=address" method="post">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Email: </label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="email" value="<%= user.meta.email %>" class="form-control"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" required>Phone:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="phone" value="<%= user.meta.phone %>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">DOB:</label>
+                                <div class="col-sm-10">
+                                    <input type="date" name="dateOfBarth" value="<%= user.meta.dateOfBarth %>"
+                                           class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Country:</label>
+                                <div class="col-sm-10">
+                                    <select name="country" class="form-control" id="country" required>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">State:</label>
+                                <div class="col-sm-10">
+                                    <select name="state" class="form-control" id="state" required>
+                                        <option value="<%= user.meta.address.state %>"><%= user.meta.address.stste %></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" required>City:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city" class="form-control"
+                                           value="<%= user.meta.address.city %>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Address1:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="address1" rows="8" cols="80" class="form-control"
+                                              required><%= user.meta.address.address1 %></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Address2:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="address2" rows="8" cols="80"
+                                              class="form-control"><%= user.meta.address.address2 %></textarea>
+                                </div>
+                            </div>
+                    </div>
+                    <hr>
+                    <button name="button" class="btn btn-success">Save</button>
+                    <a href="/admin/users/<%= user._id %>" class="btn btn-info">Go Back</a>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-          <div class="list-group">
-            <div class="list-group-item">
-              <form class="form-inline" action="/admin/users/<%= user._id %>?_method=put&type=password" method="post">
-                <div class="form-group">
-                  <small>New Password: </small>
-                  <input type="text" name="password" value="" class="form-control">
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-success">Set</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-group-item">
-              <form class="form-inline" action="/admin/users/<%= user._id %>?_method=put&type=credits" method="post">
-                <div class="form-group">
-                  <small>Edit Credits: </small>
-                  <input type="number" name="credits" value="<%= user.credits %>" class="form-control">
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-success">Chenge</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-group-item">
-              <form class="" action="/admin/users/<%= user._id %>?_method=put&type=address" method="post">
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Email: </label>
-                  <div class="col-sm-10">
-                    <input type="text" name="email" value="<%= user.meta.email %>" class="form-control" required>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" required>Phone:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="phone" value="<%= user.meta.phone %>" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">DOB:</label>
-                  <div class="col-sm-10">
-                    <input type="date" name="dateOfBarth" value="<%= user.meta.dateOfBarth %>" class="form-control" required>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Country:</label>
-                  <div class="col-sm-10">
-                    <select name="country" class="form-control" id="country" required>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">State:</label>
-                  <div class="col-sm-10">
-                    <select name="state" class="form-control" id="state" required>
-                      <option value="<%= user.meta.address.state %>"><%= user.meta.address.stste %></option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" required>City:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="city" class="form-control" value="<%= user.meta.address.city %>">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Address1:</label>
-                  <div class="col-sm-10">
-                    <textarea name="address1" rows="8" cols="80" class="form-control" required><%= user.meta.address.address1 %></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Address2:</label>
-                  <div class="col-sm-10">
-                    <textarea name="address2" rows="8" cols="80" class="form-control"><%= user.meta.address.address2 %></textarea>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <button name="button" class="btn btn-success">Save</button>
-              <a href="/admin/users/<%= user._id %>" class="btn btn-info">Go Back</a>
-            </form>
-            </div>
-        </div>
-    </div>
-  </main>
+    </main>
 </div>
-<script type="text/javascript" src="/js/selectStates.js"> </script>
+<script type="text/javascript" src="/js/selectStates.js"></script>
 <script type="text/javascript">
-populateCountries("country", "state");
+    populateCountries("country", "state");
 </script>
 
 <script type="text/javascript">
-  $("#country").val("<%= user.meta.address.country %>");
-  $("#state").val("<%= user.meta.address.stste %>");
+    $("#country").val("<%= user.meta.address.country %>");
+    $("#state").val("<%= user.meta.address.stste %>");
 </script>
 
 <% include ../../inc/footer %>

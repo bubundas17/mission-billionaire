@@ -1,63 +1,63 @@
 <% include ../../inc/usercpHead %>
-  <% include ../../inc/admincpsider %>
-    <div class="content-wrapper">
-      <main class="content-header">
+<% include ../../inc/admincpsider %>
+<div class="content-wrapper">
+    <main class="content-header">
         <div class="panel panel-info">
-          <div class="panel-heading">
-            <h4>Support Tickets</h4>
-          </div>
-          <div class="panel-body">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                Active Tickets
-              </div>
-              <div class="panel-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Statas</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <% active.forEach( ticket => { %>
-                    <tbody>
-                      <tr>
-                        <td><span style="color:#4caf50"><%= ticket.status %></span></td>
-                        <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
-                      </tr>
-                    </tbody>
-                    <% }) %>
-                </table>
-              </div>
+            <div class="panel-heading">
+                <h4>Support Tickets</h4>
             </div>
+            <div class="panel-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Active Tickets
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Statas</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <% active.forEach( ticket => { %>
+                            <tbody>
+                            <tr>
+                                <td><span style="color:#4caf50"><%= ticket.status %></span></td>
+                                <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
+                            </tr>
+                            </tbody>
+                            <% }) %>
+                        </table>
+                    </div>
+                </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                All Tickets
-              </div>
-              <div class="panel-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Statas</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <% tickets.forEach( ticket => { %>
-                    <tbody>
-                      <tr>
-                        <td><span style="color:#4caf50"><%= ticket.status %></span></td>
-                        <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
-                      </tr>
-                    </tbody>
-                    <% }) %>
-                </table>
-              </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        All Tickets
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Statas</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <% tickets.forEach( ticket => { %>
+                            <tbody>
+                            <tr>
+                                <td><span style="color:#4caf50"><%= ticket.status %></span></td>
+                                <td><a href="/admin/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
+                            </tr>
+                            </tbody>
+                            <% }) %>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-
-          </div>
         </div>
 
-      </main>
-    </div>
-    <% include ../../inc/footer %>
+    </main>
+</div>
+<% include ../../inc/footer %>

@@ -1,18 +1,18 @@
 var express = require('express');
-var router  = express.Router();
-var func    = require('../includs/func');
+var router = express.Router();
+var func = require('../includs/func');
 
 // Authentication Routs
-var authRouts		      = require('./auth');
-var clientareaRouts		= require('./clientarea');
-var adminRouts		    = require('./clientarea');
-var adminRouts        = require('./admin');
-var profileRouts      = require('./profile');
-var footerRoutes      = require('./footer');
+var authRouts = require('./auth');
+var clientareaRouts = require('./clientarea');
+var adminRouts = require('./clientarea');
+var adminRouts = require('./admin');
+var profileRouts = require('./profile');
+var footerRoutes = require('./footer');
 
 // Landing Page
-router.get('/', function(req, res){
-      res.render('index.ejs');
+router.get('/', function (req, res) {
+    res.render('index.ejs');
 });
 
 // initlizetion of routs

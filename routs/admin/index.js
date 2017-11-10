@@ -1,22 +1,22 @@
 // Imports
-var express       = require('express');
-var ticketsDB     = require('../../models/ticket');
-var middlewares   = require('../../includs/middlewares');
+const express = require('express');
+const ticketsDB = require('../../models/ticket');
+const middlewares = require('../../includs/middlewares');
 
 
 // Routs
-var ticketsRoutes = require('./tickets')
-var rechargeRoutes = require('./recharge')
-var usersRoutes = require('./users')
-var token         = require('./token')
-var widwrawls    = require('./widwral')
+const ticketsRoutes = require('./tickets');
+const rechargeRoutes = require('./recharge');
+const usersRoutes = require('./users');
+const token = require('./token');
+const widwrawls = require('./widwral');
 
 
-var router        = express.Router();
+const router = express.Router();
 
-router.get("/", middlewares.ifLoggedIn, middlewares.ifAdmin, function(req, res){
-  res.locals.title = 'Admin Area' + ' - ' + res.locals.title;
-  res.render('admin/index.ejs')
+router.get("/", middlewares.ifLoggedIn, middlewares.ifAdmin, function (req, res) {
+    res.locals.title = 'Admin Area' + ' - ' + res.locals.title;
+    res.render('admin/index.ejs')
 });
 
 router.use('/recharge', rechargeRoutes);

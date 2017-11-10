@@ -1,62 +1,63 @@
 <% include ../../inc/usercpHead %>
 <% include ../../inc/admincpsider %>
 <div class="content-wrapper">
-  <main class="content-header">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h4>User List</h4>
-        </div>
-        <div class="panel-body">
-          <h3>User Ditels</h3>
-          <div class="list-group-item">
-            <div class="form-group">
-            <strong>User Name:</strong> <%= user.name %>
+    <main class="content-header">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>User List</h4>
             </div>
-            <div class="form-group">
-            <strong>Username:</strong> <%= user.username %>
-            </div>
-            <div class="form-group">
-              <strong>Credits:</strong> <%= user.credits %>
-            </div>
-            <div class="form-group">
-            <strong>Email:</strong> <%= user.meta.email %>
-            </div>
-            <div class="form-group">
-            <strong>Phone:</strong> <%= user.meta.phone %>
-            </div>
-            <div class="form-group">
-            <strong>Date Of Birth:</strong> <%= user.meta.dateOfBarth %>
-            </div>
-            <div class="list-group-item">
-              <h4>Address: </h4>
-              <div class="form-group">
-                City-<%= user.meta.address.city %>, <%= user.meta.address.state %>, <%= user.meta.address.country %>
-              </div>
-            </div>
+            <div class="panel-body">
+                <h3>User Ditels</h3>
+                <div class="list-group-item">
+                    <div class="form-group">
+                        <strong>User Name:</strong> <%= user.name %>
+                    </div>
+                    <div class="form-group">
+                        <strong>Username:</strong> <%= user.username %>
+                    </div>
+                    <div class="form-group">
+                        <strong>Credits:</strong> <%= user.credits %>
+                    </div>
+                    <div class="form-group">
+                        <strong>Email:</strong> <%= user.meta.email %>
+                    </div>
+                    <div class="form-group">
+                        <strong>Phone:</strong> <%= user.meta.phone %>
+                    </div>
+                    <div class="form-group">
+                        <strong>Date Of Birth:</strong> <%= user.meta.dateOfBarth %>
+                    </div>
+                    <div class="list-group-item">
+                        <h4>Address: </h4>
+                        <div class="form-group">
+                            City-<%= user.meta.address.city %>, <%= user.meta.address.state %>
+                            , <%= user.meta.address.country %>
+                        </div>
+                    </div>
 
-            <hr>
-            <a href="/admin/users/<%= user._id %>/edit" class="btn btn-info"> Edit User</a>
-            <a href="/admin/users/" class="btn btn-success">Go Back</a>
-          </div>
-          <div class="list-group-item">
-            <h4>Recharge User:</h4>
-            <form class="" action="/admin/recharge" method="post">
-              <div class="form-group">
-                <input type="hidden" value="<%= user._id %>" name="user">
-              </div>
-              <div class="form-group">
-                <label for="ammount">ammount:</label>
-                <input type="number" name="ammount" value="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="reason">reason:</label>
-                <input type="text" name="reason" value="" class="form-control">
-              </div>
-              <button class="btn btn-success">Recharge!</button>
-            </form>
-          </div>
+                    <hr>
+                    <a href="/admin/users/<%= user._id %>/edit" class="btn btn-info"> Edit User</a>
+                    <a href="/admin/users/" class="btn btn-success">Go Back</a>
+                </div>
+                <div class="list-group-item">
+                    <h4>Recharge User:</h4>
+                    <form class="" action="/admin/recharge" method="post">
+                        <div class="form-group">
+                            <input type="hidden" value="<%= user._id %>" name="user">
+                        </div>
+                        <div class="form-group">
+                            <label for="ammount">ammount:</label>
+                            <input type="number" name="ammount" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">reason:</label>
+                            <input type="text" name="reason" value="" class="form-control">
+                        </div>
+                        <button class="btn btn-success">Recharge!</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </main>
-  </div>
+</div>
 <% include ../../inc/footer %>

@@ -3,10 +3,64 @@
   <component name="ChangeListManager">
     <list default="true" id="1d5eed35-a770-45c4-a015-f070eb88db10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/BruteForceSchema.js" afterPath="$PROJECT_DIR$/models/BruteForceSchema.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/dimondIncome.js" afterPath="$PROJECT_DIR$/models/dimondIncome.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/goldIncmone.js" afterPath="$PROJECT_DIR$/models/goldIncmone.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/invoice.js" afterPath="$PROJECT_DIR$/models/invoice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/nonworkingincome.js" afterPath="$PROJECT_DIR$/models/nonworkingincome.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/platinumIncome.js" afterPath="$PROJECT_DIR$/models/platinumIncome.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/recharge.js" afterPath="$PROJECT_DIR$/models/recharge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/referialincome.js" afterPath="$PROJECT_DIR$/models/referialincome.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/statement.js" afterPath="$PROJECT_DIR$/models/statement.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/sysinfo.js" afterPath="$PROJECT_DIR$/models/sysinfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ticket.js" afterPath="$PROJECT_DIR$/models/ticket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/token.js" afterPath="$PROJECT_DIR$/models/token.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.js" afterPath="$PROJECT_DIR$/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/withdrawal.js" afterPath="$PROJECT_DIR$/models/withdrawal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/index.js" afterPath="$PROJECT_DIR$/routs/admin/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/plans.js" afterPath="$PROJECT_DIR$/routs/admin/plans.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/recharge.js" afterPath="$PROJECT_DIR$/routs/admin/recharge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/services.js" afterPath="$PROJECT_DIR$/routs/admin/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/tickets.js" afterPath="$PROJECT_DIR$/routs/admin/tickets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/token.js" afterPath="$PROJECT_DIR$/routs/admin/token.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/users.js" afterPath="$PROJECT_DIR$/routs/admin/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/admin/widwral.js" afterPath="$PROJECT_DIR$/routs/admin/widwral.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/auth.js" afterPath="$PROJECT_DIR$/routs/auth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/footer.js" afterPath="$PROJECT_DIR$/routs/footer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/index.js" afterPath="$PROJECT_DIR$/routs/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routs/profile.js" afterPath="$PROJECT_DIR$/routs/profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/404.ejs" afterPath="$PROJECT_DIR$/views/404.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/index.ejs" afterPath="$PROJECT_DIR$/views/admin/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/recharge.ejs" afterPath="$PROJECT_DIR$/views/admin/recharge.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/services.ejs" afterPath="$PROJECT_DIR$/views/admin/services.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/tickets/index.ejs" afterPath="$PROJECT_DIR$/views/admin/tickets/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/tickets/view.ejs" afterPath="$PROJECT_DIR$/views/admin/tickets/view.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/token/generate.ejs" afterPath="$PROJECT_DIR$/views/admin/token/generate.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/token/index.ejs" afterPath="$PROJECT_DIR$/views/admin/token/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/token/newcupon.ejs" afterPath="$PROJECT_DIR$/views/admin/token/newcupon.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/users/editUser.ejs" afterPath="$PROJECT_DIR$/views/admin/users/editUser.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/users/userlist.ejs" afterPath="$PROJECT_DIR$/views/admin/users/userlist.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/users/viewUser.ejs" afterPath="$PROJECT_DIR$/views/admin/users/viewUser.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/viewplan.ejs" afterPath="$PROJECT_DIR$/views/admin/viewplan.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/viewservice.ejs" afterPath="$PROJECT_DIR$/views/admin/viewservice.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/auth/login.ejs" afterPath="$PROJECT_DIR$/views/auth/login.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/auth/newpassword.ejs" afterPath="$PROJECT_DIR$/views/auth/newpassword.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/auth/signup.ejs" afterPath="$PROJECT_DIR$/views/auth/signup.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/activation/activate.ejs" afterPath="$PROJECT_DIR$/views/clientarea/activation/activate.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/head.ejs" afterPath="$PROJECT_DIR$/views/clientarea/head.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/income/dimond.ejs" afterPath="$PROJECT_DIR$/views/clientarea/income/dimond.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/income/gold.ejs" afterPath="$PROJECT_DIR$/views/clientarea/income/gold.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/income/platinum.ejs" afterPath="$PROJECT_DIR$/views/clientarea/income/platinum.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/income/referral.ejs" afterPath="$PROJECT_DIR$/views/clientarea/income/referral.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/index.ejs" afterPath="$PROJECT_DIR$/views/clientarea/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/payments/proceed.ejs" afterPath="$PROJECT_DIR$/views/clientarea/payments/proceed.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/referrals/direct.ejs" afterPath="$PROJECT_DIR$/views/clientarea/referrals/direct.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/referrals/index.ejs" afterPath="$PROJECT_DIR$/views/clientarea/referrals/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/statement.ejs" afterPath="$PROJECT_DIR$/views/clientarea/statement.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/widwrawl/index.ejs" afterPath="$PROJECT_DIR$/views/clientarea/widwrawl/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/widwrawl/recharge.ejs" afterPath="$PROJECT_DIR$/views/clientarea/widwrawl/recharge.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/clientarea/widwrawl/tkc.ejs" afterPath="$PROJECT_DIR$/views/clientarea/widwrawl/tkc.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,93 +83,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="gold.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/income/gold.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/income/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includs/func.js">
+      <file leaf-file-name="platinum.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/income/platinum.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-              <folding>
-                <element signature="e#340#421#0" expanded="false" />
-                <element signature="e#486#918#0" expanded="false" />
-                <element signature="e#983#1086#0" expanded="false" />
-                <element signature="e#1163#1453#0" expanded="false" />
-                <element signature="e#1545#1860#0" expanded="false" />
-                <element signature="e#1928#2292#0" expanded="false" />
-                <element signature="e#2367#3017#0" expanded="false" />
-                <element signature="e#3069#3333#0" expanded="false" />
-                <element signature="e#3403#3660#0" expanded="false" />
-                <element signature="e#3713#5032#0" expanded="false" />
-                <element signature="e#5059#5473#0" expanded="false" />
-                <element signature="e#5503#5755#0" expanded="false" />
-                <element signature="e#5806#6669#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routs/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="296" column="47" lean-forward="false" selection-start-line="296" selection-start-column="47" selection-end-line="296" selection-end-column="47" />
-              <folding>
-                <element signature="e#535#823#0" expanded="false" />
-                <element signature="e#932#1535#0" expanded="false" />
-                <element signature="e#1582#2495#0" expanded="false" />
-                <element signature="e#2572#4162#0" expanded="false" />
-                <element signature="e#4210#6052#0" expanded="false" />
-                <element signature="e#6116#6298#0" expanded="false" />
-                <element signature="e#6386#6501#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routs/admin/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="47" column="79" lean-forward="true" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
+            <state relative-caret-position="338">
+              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/auth/signup.ejs">
+      <file leaf-file-name="referral.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/income/referral.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="951">
-              <caret line="97" column="96" lean-forward="true" selection-start-line="97" selection-start-column="96" selection-end-line="97" selection-end-column="96" />
+            <state relative-caret-position="312">
+              <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="proceed.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/payments/proceed.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="234">
+              <caret line="15" column="89" lean-forward="false" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.js">
+      <file leaf-file-name="direct.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/clientarea/referrals/direct.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state relative-caret-position="2158">
+              <caret line="83" column="6" lean-forward="true" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -124,6 +146,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Bubun Das &lt;bubundas17@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -193,14 +220,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="internal/inspector_async_hook.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/node_modules/express/lib/router/index.js" />
-        <option value="$PROJECT_DIR$/includs/func.js" />
-        <option value="$PROJECT_DIR$/routs/admin/users.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/views/auth/signup.ejs" />
-        <option value="$PROJECT_DIR$/routs/auth.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/routs/admin/index.js" />
+        <option value="$PROJECT_DIR$/routs/admin/plans.js" />
+        <option value="$PROJECT_DIR$/routs/admin/recharge.js" />
+        <option value="$PROJECT_DIR$/routs/admin/services.js" />
+        <option value="$PROJECT_DIR$/routs/admin/tickets.js" />
+        <option value="$PROJECT_DIR$/routs/admin/token.js" />
+        <option value="$PROJECT_DIR$/routs/admin/widwral.js" />
+        <option value="$PROJECT_DIR$/views/auth/login.ejs" />
+        <option value="$PROJECT_DIR$/views/auth/newpassword.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/head.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/index.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/statement.ejs" />
+        <option value="$PROJECT_DIR$/views/404.ejs" />
+        <option value="$PROJECT_DIR$/models/BruteForceSchema.js" />
+        <option value="$PROJECT_DIR$/models/dimondIncome.js" />
+        <option value="$PROJECT_DIR$/models/goldIncmone.js" />
+        <option value="$PROJECT_DIR$/models/invoice.js" />
+        <option value="$PROJECT_DIR$/models/nonworkingincome.js" />
+        <option value="$PROJECT_DIR$/models/platinumIncome.js" />
+        <option value="$PROJECT_DIR$/models/recharge.js" />
+        <option value="$PROJECT_DIR$/models/referialincome.js" />
+        <option value="$PROJECT_DIR$/models/statement.js" />
+        <option value="$PROJECT_DIR$/models/sysinfo.js" />
+        <option value="$PROJECT_DIR$/models/ticket.js" />
+        <option value="$PROJECT_DIR$/models/token.js" />
+        <option value="$PROJECT_DIR$/models/user.js" />
+        <option value="$PROJECT_DIR$/models/withdrawal.js" />
+        <option value="$PROJECT_DIR$/views/admin/tickets/index.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/tickets/view.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/token/generate.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/token/index.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/token/newcupon.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/users/editUser.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/users/userlist.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/users/viewUser.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/recharge.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/services.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/viewplan.ejs" />
+        <option value="$PROJECT_DIR$/views/admin/viewservice.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/activation/activate.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/income/dimond.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/income/gold.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/income/platinum.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/income/referral.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/payments/proceed.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/referrals/direct.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/referrals/index.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/widwrawl/index.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/widwrawl/recharge.ejs" />
+        <option value="$PROJECT_DIR$/views/clientarea/widwrawl/tkc.ejs" />
       </list>
     </option>
   </component>
@@ -227,6 +297,28 @@
     <option name="width" value="1264" />
     <option name="height" value="1038" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>ES6ConvertVarToLetConst</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -250,38 +342,6 @@
             <path>
               <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
               <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="includs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="routs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="routs" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mission-billionaire" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mission-billionaire" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -372,21 +432,28 @@
       <workItem from="1510206575469" duration="3937000" />
       <workItem from="1510231998582" duration="209000" />
       <workItem from="1510232227437" duration="16073000" />
-      <workItem from="1510314764945" duration="6280000" />
+      <workItem from="1510314764945" duration="9402000" />
     </task>
+    <task id="LOCAL-00001" summary="Signup Error solved">
+      <created>1510332459754</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1510332459754</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30668000" />
+    <option name="totallyTimeSpent" value="33790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.102062404" sideWeight="0.49544418" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24854574" sideWeight="0.5045558" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.033760186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24918567" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -408,6 +475,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Signup Error solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signup Error solved" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
@@ -418,294 +489,411 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/routs/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        <state relative-caret-position="182">
+          <caret line="7" column="61" lean-forward="true" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includs/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#340#421#0" expanded="false" />
-            <element signature="e#486#918#0" expanded="false" />
-            <element signature="e#983#1086#0" expanded="false" />
-            <element signature="e#1163#1453#0" expanded="false" />
-            <element signature="e#1545#1860#0" expanded="false" />
-            <element signature="e#1928#2292#0" expanded="false" />
-            <element signature="e#2367#3017#0" expanded="false" />
-            <element signature="e#3069#3333#0" expanded="false" />
-            <element signature="e#3403#3660#0" expanded="false" />
-            <element signature="e#3713#5032#0" expanded="false" />
-            <element signature="e#5059#5473#0" expanded="false" />
-            <element signature="e#5503#5755#0" expanded="false" />
-            <element signature="e#5806#6669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/auth/signup.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="41" column="88" lean-forward="false" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routs/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6838">
-          <caret line="263" column="47" lean-forward="true" selection-start-line="263" selection-start-column="47" selection-end-line="263" selection-end-column="47" />
-          <folding>
-            <element signature="e#535#823#0" expanded="false" />
-            <element signature="e#932#1535#0" expanded="false" />
-            <element signature="e#1582#2495#0" expanded="false" />
-            <element signature="e#2572#4162#0" expanded="false" />
-            <element signature="e#4210#6052#0" expanded="false" />
-            <element signature="e#6116#6298#0" expanded="false" />
-            <element signature="e#6386#6501#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="30" lean-forward="false" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includs/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5103">
-          <caret line="243" column="5" lean-forward="true" selection-start-line="243" selection-start-column="5" selection-end-line="243" selection-end-column="5" />
-          <folding>
-            <element signature="e#340#421#0" expanded="false" />
-            <element signature="e#486#918#0" expanded="false" />
-            <element signature="e#983#1086#0" expanded="false" />
-            <element signature="e#1163#1453#0" expanded="false" />
-            <element signature="e#1545#1860#0" expanded="false" />
-            <element signature="e#1928#2292#0" expanded="false" />
-            <element signature="e#2367#3017#0" expanded="false" />
-            <element signature="e#3069#3333#0" expanded="false" />
-            <element signature="e#3403#3660#0" expanded="false" />
-            <element signature="e#3713#5032#0" expanded="false" />
-            <element signature="e#5059#5473#0" expanded="false" />
-            <element signature="e#5503#5755#0" expanded="false" />
-            <element signature="e#5806#6669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="69" column="45" lean-forward="true" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includs/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#340#421#0" expanded="false" />
-            <element signature="e#486#918#0" expanded="false" />
-            <element signature="e#983#1086#0" expanded="false" />
-            <element signature="e#1163#1453#0" expanded="false" />
-            <element signature="e#1545#1860#0" expanded="false" />
-            <element signature="e#1928#2292#0" expanded="false" />
-            <element signature="e#2367#3017#0" expanded="false" />
-            <element signature="e#3069#3333#0" expanded="false" />
-            <element signature="e#3403#3660#0" expanded="false" />
-            <element signature="e#3713#5032#0" expanded="false" />
-            <element signature="e#5059#5473#0" expanded="false" />
-            <element signature="e#5503#5755#0" expanded="false" />
-            <element signature="e#5806#6669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/routs/admin/token.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routs/footer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.8.1/core-modules/async_hooks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="490" column="0" lean-forward="false" selection-start-line="490" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        <state relative-caret-position="208">
+          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/routs/admin/widwral.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/auth/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
+        <state relative-caret-position="-1069">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/auth/newpassword.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/auth/resetpwd.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/auth/signup.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-650">
+          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/head.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/statement.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/404.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/BruteForceSchema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/dimondIncome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/invoice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/nonworkingincome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/platinumIncome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/recharge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/referialincome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/statement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/sysinfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/goldIncmone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/withdrawal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state relative-caret-position="595">
+          <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/models/token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/ticket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/tickets/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/tickets/view.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3097">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/token/generate.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/token/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/token/newcupon.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/users/editUser.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/users/userlist.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="73" lean-forward="false" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/users/viewUser.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/recharge.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="48" lean-forward="false" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/users.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/viewservice.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="44" lean-forward="false" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/viewplan.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/services.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includs/func.js">
+    <entry file="file://$PROJECT_DIR$/views/clientarea/activation/activate.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#340#421#0" expanded="false" />
-            <element signature="e#486#918#0" expanded="false" />
-            <element signature="e#983#1086#0" expanded="false" />
-            <element signature="e#1163#1453#0" expanded="false" />
-            <element signature="e#1545#1860#0" expanded="false" />
-            <element signature="e#1928#2292#0" expanded="false" />
-            <element signature="e#2367#3017#0" expanded="false" />
-            <element signature="e#3069#3333#0" expanded="false" />
-            <element signature="e#3403#3660#0" expanded="false" />
-            <element signature="e#3713#5032#0" expanded="false" />
-            <element signature="e#5059#5473#0" expanded="false" />
-            <element signature="e#5503#5755#0" expanded="false" />
-            <element signature="e#5806#6669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/auth/signup.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
-          <caret line="97" column="96" lean-forward="true" selection-start-line="97" selection-start-column="96" selection-end-line="97" selection-end-column="96" />
+        <state relative-caret-position="286">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routs/admin/users.js">
+    <entry file="file://$PROJECT_DIR$/views/clientarea/income/dimond.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="47" column="79" lean-forward="true" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
+        <state relative-caret-position="286">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routs/auth.js">
+    <entry file="file://$PROJECT_DIR$/views/clientarea/income/gold.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="296" column="47" lean-forward="false" selection-start-line="296" selection-start-column="47" selection-end-line="296" selection-end-column="47" />
-          <folding>
-            <element signature="e#535#823#0" expanded="false" />
-            <element signature="e#932#1535#0" expanded="false" />
-            <element signature="e#1582#2495#0" expanded="false" />
-            <element signature="e#2572#4162#0" expanded="false" />
-            <element signature="e#4210#6052#0" expanded="false" />
-            <element signature="e#6116#6298#0" expanded="false" />
-            <element signature="e#6386#6501#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="364">
+          <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/income/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/income/platinum.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/income/referral.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/payments/proceed.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="89" lean-forward="false" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/widwrawl/tkc.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/widwrawl/recharge.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="65" lean-forward="false" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/widwrawl/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/referrals/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/clientarea/referrals/direct.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2158">
+          <caret line="83" column="6" lean-forward="true" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

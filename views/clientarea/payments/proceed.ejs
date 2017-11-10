@@ -1,58 +1,61 @@
 <% include ../../inc/header %>
-  <div class="container">
+<div class="container">
     <h1>Client area</h1>
-  </div>
-  <div class="container">
+</div>
+<div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <% include ../../inc/usercpsider.ejs %>
-      </div>
-      <div class="col-md-8">
-        <div class="list-group">
-          <div class="list-group-item active">
-            <h5>Complete Your Payment:</h5>
-          </div>
-          <div class="list-group-item">
-            <p>Choose The Payment Method To Proceed. Click Any Of this buttons, It'll redirect you to the payment gateway.</p>
-          </div>
-          <div class="list-group-item">
-            <table class="table table-inverse">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= payment.payment_request.purpose %></td>
-                  <td><%= payment.payment_request.amount %></td>
-                </tr>
-                <tr>
-                  <td>Convenience Fees:</td>
-                  <td><%= (payment.payment_request.amount * 0.02) + 3 %></td>
-                </tr>
-                <tr>
-                  <td>Total:</td>
-                  <td><%= ((payment.payment_request.amount * 1.02) + 3) %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="list-group-item">
-            <div class="container-fluid">
-              <i class="fa fa-lock" aria-hidden="true"></i> Your payment is secure with SSL Connectipn. <br>
-              <button class="btn btn-success pull-right" style="margin-left: auto" id="payment">Proceed To Payment</button>
-            </div>
-          </div>
+        <div class="col-md-4">
+            <% include ../../inc/usercpsider.ejs %>
         </div>
-      </div>
+        <div class="col-md-8">
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <h5>Complete Your Payment:</h5>
+                </div>
+                <div class="list-group-item">
+                    <p>Choose The Payment Method To Proceed. Click Any Of this buttons, It'll redirect you to the
+                        payment gateway.</p>
+                </div>
+                <div class="list-group-item">
+                    <table class="table table-inverse">
+                        <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><%= payment.payment_request.purpose %></td>
+                            <td><%= payment.payment_request.amount %></td>
+                        </tr>
+                        <tr>
+                            <td>Convenience Fees:</td>
+                            <td><%= (payment.payment_request.amount * 0.02) + 3 %></td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td><%= ((payment.payment_request.amount * 1.02) + 3) %></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-group-item">
+                    <div class="container-fluid">
+                        <i class="fa fa-lock" aria-hidden="true"></i> Your payment is secure with SSL Connectipn. <br>
+                        <button class="btn btn-success pull-right" style="margin-left: auto" id="payment">Proceed To
+                            Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="https://js.instamojo.com/v1/checkout.js"></script>
-  <script>
-    $("#payment").click( function(){
+</div>
+<script src="https://js.instamojo.com/v1/checkout.js"></script>
+<script>
+    $("#payment").click(function () {
         Instamojo.open("<%= payment['payment_request']['longurl'] %>");
     })
-  </script>
-  <% include ../../inc/footer %>
+</script>
+<% include ../../inc/footer %>
