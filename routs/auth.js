@@ -283,7 +283,6 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
                     email: email,
                     phone: phone,
                 },
-                referedBy: refUser,
                 password: hash, // Storing Hashed password instead of actual password.
                 salt: salt,
                 bitcoin: btc// Storing Salt for later password generation posses.
@@ -298,7 +297,6 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
                     return res.redirect('/signup');
                 });
         }
-
     }
 });
 
