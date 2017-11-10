@@ -1,13 +1,12 @@
 {
-  "name": "tkc4you",
+  "name": "mission-billionere",
   "version": "1.0.3",
-  "description": "tkc4you.com By bubundas17",
+  "description": "missionbillionere.in By bubundas17",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "authbind node app.js",
     "run": "node $NODE_DEBUG_OPTION app.js"
-
   },
   "author": "Bubun Das <bubundas17@gmail.com> (https://bubundas17.me)",
   "license": "ISC",
