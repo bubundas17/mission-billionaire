@@ -6,7 +6,7 @@ const func = require('../../includs/func');
 
 // Config values
 const userListPerPage = 10;
-
+// TODO: Add User Activation Function.
 router.get('/', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
     let query = req.query.q || ".*";
     userDB.paginate({
@@ -122,5 +122,30 @@ router.get('/:id/edit', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) 
         })
 });
 
+router.get('/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+    let query = req.query.q || ".*";
+    userDB.paginate({
+        $or: [
+            {
+                username: {"$regex": query + "", "$options": "i"}, isActive: false
+            }, {
+                name: {"$regex": query + "", "$options": "i"}, isActive: false
+            }
 
+        ]
+    }, {
+        page: req.query.page || 1,
+        limit: userListPerPage
+    })
+        .then((users) => {
+            res.render("admin/users/userlist.ejs", {users: users});
+        })
+        .catch(err => {
+            if (err) {
+                console.log(err);
+                req.flash('error', 'Something Is Wants Wrong!');
+                return res.redirect('back');
+            }
+        })
+});
 module.exports = router;

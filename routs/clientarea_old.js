@@ -3,21 +3,21 @@ const middlewares   = require('../includs/middlewares');
 const func          = require('../includs/func');
 var   router        = express.Router();
 const json          = require('json-parser');
-const config        = require('../config.js')
+const config        = require('../config.js');
 
 
-const statementDB   = require('../models/statement')
-const ticketDB      = require('../models/ticket')
-const tokenDB       = require('../models/token')
-const userDB        = require('../models/user')
-const ReferialincomeBD = require('../models/referialincome')
-const sysinfoDB     = require('../models/sysinfo')
-const nonworkingIncomeDB = require('../models/nonworkingincome')
-const GoldIncomeDB = require('../models/goldIncmone')
-const PlatinumIncomeDB = require('../models/platinumIncome')
-const DimondIncomeDB = require('../models/dimondIncome')
-const widwrawlDB     = require('../models/withdrawal')
-const rechargeDB     = require('../models/recharge')
+const statementDB   = require('../models/statement');
+const ticketDB      = require('../models/ticket');
+const tokenDB       = require('../models/token');
+const userDB        = require('../models/user');
+const ReferialincomeBD = require('../models/referialincome');
+const sysinfoDB     = require('../models/sysinfo');
+const nonworkingIncomeDB = require('../models/nonworkingincome');
+const GoldIncomeDB = require('../models/goldIncmone');
+const PlatinumIncomeDB = require('../models/platinumIncome');
+const DimondIncomeDB = require('../models/dimondIncome');
+const widwrawlDB     = require('../models/withdrawal');
+const rechargeDB     = require('../models/recharge');
 
 
 // Homepage Of Clientarea
@@ -249,7 +249,7 @@ router.get('/income/referral',  middlewares.ifLoggedIn,  middlewares.ifActive, (
       res.render('clientarea/income/referral.ejs', {data: data})
     })
 
-})
+});
 
 
 router.get('/income/nonworking',  middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
@@ -266,7 +266,7 @@ router.get('/income/nonworking',  middlewares.ifLoggedIn,  middlewares.ifActive,
       res.render('clientarea/income/referral.ejs', {data: data})
     })
 
-})
+});
 
 
 router.get('/income/gold',  middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
@@ -283,7 +283,7 @@ router.get('/income/gold',  middlewares.ifLoggedIn,  middlewares.ifActive, (req,
       res.render('clientarea/income/gold.ejs', {data: data})
     })
 
-})
+});
 
 router.get('/income/platinum',  middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   res.locals.title = 'Referral Income ' + ' - ' + res.locals.title;
@@ -299,7 +299,7 @@ router.get('/income/platinum',  middlewares.ifLoggedIn,  middlewares.ifActive, (
       res.render('clientarea/income/platinum.ejs', {data: data})
     })
 
-})
+});
 
 router.get('/income/dimond',  middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   res.locals.title = 'Referral Income ' + ' - ' + res.locals.title;
@@ -315,10 +315,10 @@ router.get('/income/dimond',  middlewares.ifLoggedIn,  middlewares.ifActive, (re
       res.render('clientarea/income/dimond.ejs', {data: data})
     })
 
-})
+});
 
 // Widwrawl Paths
-router.get('/widwrawl', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
+router.get('/withdrawal', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   Promise.all([widwrawlDB.find({user: req.user._id}), rechargeDB.find({user: req.user._id})])
     .then( reqs => {
       res.locals.title = 'Widwrawl Requests ' + ' - ' + res.locals.title;
@@ -328,14 +328,14 @@ router.get('/widwrawl', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res
       console.log("Cannot read Database!");
       console.log(err);
     })
-})
+});
 
-router.get('/widwrawl/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
+router.get('/withdrawal/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   res.locals.title = 'Widwrawl Via TKC Coin ' + ' - ' + res.locals.title;
   res.render('clientarea/widwrawl/tkc.ejs')
-})
+});
 
-router.post('/widwrawl/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
+router.post('/withdrawal/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   var amount      =   req.body.amount
   tkc          =   parseInt(amount)
   sysinfoDB.findOne({ name: "Tkc4you" })
@@ -375,18 +375,18 @@ router.post('/widwrawl/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req
       console.log("Database Update Failed!");
       console.log(err);
     })
-})
+});
 
-router.get('/widwrawl/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
+router.get('/withdrawal/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   res.locals.title = 'Widwrawl Via Mobile Recharge ' + ' - ' + res.locals.title;
   sysinfoDB.findOne({ name: "Tkc4you" })
     .then( info => {
       res.render('clientarea/widwrawl/recharge.ejs', {info})
     })
 
-})
+});
 
-router.post('/widwrawl/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
+router.post('/withdrawal/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
   const operator  =   req.body.operator
   const state     =   req.body.state
   const number    =   req.body.number
@@ -435,7 +435,7 @@ router.post('/widwrawl/recharge', middlewares.ifLoggedIn,  middlewares.ifActive,
       console.log("Database Update Failed!");
       console.log(err);
     })
-})
+});
 
 
 // Referals Routs
@@ -466,7 +466,7 @@ router.get('/referrals/direct', middlewares.ifLoggedIn,  middlewares.ifActive, (
       return res.redirect('back');
     }
   })
-})
+});
 
 
 module.exports = router;

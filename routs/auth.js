@@ -80,7 +80,7 @@ router.get('/resetpwd', function (req, res) {
             ref: req.query.ref
         });
     }
-})
+});
 
 router.post('/resetpwd/send', middlewares.checkCaptha, function (req, res) {
     if (req.body.username) {
@@ -201,7 +201,7 @@ router.get('/logout', middlewares.ifLoggedIn, (req, res) => {
     req.logout();
     req.flash('success', 'Logged You Out. Come back soon.');
     res.redirect('/');
-})
+});
 
 // Sign Up Routs
 router.get('/signup', middlewares.ifNotLoggedIn, function (req, res) {
@@ -290,7 +290,6 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
                     req.flash('info', 'Sign Up Done. Welcome to our fatally');
                     res.redirect('/');
                 })
-
                 .catch(err => {
                     req.flash('error', 'No User found with the referral id you entered!');
                     return res.redirect('/signup');
