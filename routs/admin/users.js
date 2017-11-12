@@ -6,7 +6,6 @@ const func = require('../../includs/func');
 
 // Config values
 const userListPerPage = 10;
-// TODO: Add User Activation Function.
 router.get('/', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
     let query = req.query.q || ".*";
     userDB.paginate({
@@ -20,7 +19,8 @@ router.get('/', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
         ]
     }, {
         page: req.query.page || 1,
-        limit: userListPerPage
+        limit: userListPerPage,
+        sort:     { _id: -1 }
     })
         .then((users) => {
             res.render("admin/users/userlist.ejs", {users: users});
@@ -34,7 +34,35 @@ router.get('/', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
         })
 });
 
-router.get('/:id', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+router.get('/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+    var query = req.query.q || ".*";
+    userDB.paginate({
+        $or: [
+            {
+                username: {"$regex": query + "", "$options": "i"}, isActive: false
+            }, {
+                name: {"$regex": query + "", "$options": "i"}, isActive: false
+            }
+        ]
+    }, {
+        page: req.query.page || 1,
+        limit: userListPerPage,
+        sort:     { _id: -1 }
+    })
+        .then((users) => {
+            res.render("admin/users/activeUser.ejs", {users: users});
+        })
+        .catch(err => {
+            console.log(err)
+            if (err) {
+                console.log(err);
+                req.flash('error', 'Something Is Wants Wrong!');
+                return res.redirect('back');
+            }
+        })
+});
+
+router.get('/:id/view', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
     userDB.findById(req.params.id)
         .then(user => {
             console.log(user);
@@ -45,6 +73,30 @@ router.get('/:id', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
             return res.redirect('back');
         });
 });
+
+router.get('/:id/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+    userDB.findById(req.params.id)
+        .then(user => {
+            console.log(user);
+            res.render("admin/users/active.ejs", {user: user})
+        })
+        .catch(err => {
+            req.flash('error', 'Something Is Wants Wrong! Please Contact To Administrator.');
+            return res.redirect('back');
+        });
+});
+
+router.post('/:id/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+    userDB.findById(req.params.id)
+        .then(user => {
+            res.render("admin/users/active.ejs", {user: user})
+        })
+        .catch(err => {
+            req.flash('error', 'Something Is Wants Wrong! Please Contact To Administrator.');
+            return res.redirect('back');
+        });
+});
+
 
 router.put('/:id', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
     userDB.findById(req.params.id)
@@ -122,30 +174,4 @@ router.get('/:id/edit', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) 
         })
 });
 
-router.get('/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
-    let query = req.query.q || ".*";
-    userDB.paginate({
-        $or: [
-            {
-                username: {"$regex": query + "", "$options": "i"}, isActive: false
-            }, {
-                name: {"$regex": query + "", "$options": "i"}, isActive: false
-            }
-
-        ]
-    }, {
-        page: req.query.page || 1,
-        limit: userListPerPage
-    })
-        .then((users) => {
-            res.render("admin/users/userlist.ejs", {users: users});
-        })
-        .catch(err => {
-            if (err) {
-                console.log(err);
-                req.flash('error', 'Something Is Wants Wrong!');
-                return res.redirect('back');
-            }
-        })
-});
 module.exports = router;

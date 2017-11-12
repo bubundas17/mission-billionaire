@@ -1,0 +1,29 @@
+<% include ../../inc/usercpHead %>
+<% include ../../inc/admincpsider %>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4>Active User</h4>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="list-group-item">
+                <form class="" action="/admin/users/<%= user._id %>/active" method="post">
+            </div>
+            <hr>
+            <button name="button" class="btn btn-success">Save</button>
+            <a href="/admin/users/<%= user._id %>" class="btn btn-info">Go Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/selectStates.js"></script>
+<script type="text/javascript">
+    populateCountries("country", "state");
+</script>
+
+<script type="text/javascript">
+    $("#country").val("<%= user.meta.address.country %>");
+    $("#state").val("<%= user.meta.address.stste %>");
+</script>
+
+<% include ../../inc/footer %>

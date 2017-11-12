@@ -8,7 +8,7 @@ const Schema = new mongoose.Schema({
         required: true
     },
     amount: Number,
-    discription: String,
+    description: String,
     date: {type: Date, default: Date.now}
 });
 

@@ -1,67 +1,69 @@
 <aside class="main-sidebar">
-  <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
-    <!-- /.search form -->
-    <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu" data-widget="tree">
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-users"></i> <span>User Management</span>
-          <span class="pull-right-container">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>User Management</span>
+                    <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/admin/users"><i class="fa fa-list"></i> User List</a></li>
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-comments"></i> <span>Support Tickets</span>
-          <span class="pull-right-container">
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/admin/users"><i class="fa fa-list"></i> User List</a></li>
+                    <li><a href="/admin/users/active"><i class="fa fa-check-square-o" aria-hidden="true"></i> Activate
+                            Users</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-comments"></i> <span>Support Tickets</span>
+                    <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/admin/tickets"><i class="fa fa-comments"></i> Support Tickets</a></li>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/admin/tickets"><i class="fa fa-comments"></i> Support Tickets</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-  </section>
-  <!-- /.sidebar -->
+    </section>
+    <!-- /.sidebar -->
 </aside>
 <div class="content-wrapper">
-  <main class="content-header">
+    <main class="content-header">
 
-      <% if (messages.success) { %>
-    <div class="alert alert-success alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-check"></i> Success!</h4>
-        <%- messages.success %>
-    </div>
-    <div class="alert alert-success">
-      <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <%- messages.success %>
-    </div>
-      <% } %>
-      <% if (messages.info) { %>
-    <div class="alert alert-info alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-info"></i> Info!</h4>
-        <%- messages.info %>
-    </div>
-      <% } %>
-      <% if (messages.warning) { %>
-    <div class="alert alert-warning alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-warning"></i> Warning!</h4>
-        <%- messages.warning %>
-    </div>
-      <% } %>
-      <% if (messages.error) { %>
-    <div class="alert alert-danger alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-ban"></i> Error!</h4>
-        <%- messages.error %>
-    </div>
+        <% if (messages.success) { %>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> Success!</h4>
+            <%- messages.success %>
+        </div>
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <%- messages.success %>
+        </div>
+        <% } %>
+        <% if (messages.info) { %>
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-info"></i> Info!</h4>
+            <%- messages.info %>
+        </div>
+        <% } %>
+        <% if (messages.warning) { %>
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-warning"></i> Warning!</h4>
+            <%- messages.warning %>
+        </div>
+        <% } %>
+        <% if (messages.error) { %>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-ban"></i> Error!</h4>
+            <%- messages.error %>
+        </div>
 <% } %>

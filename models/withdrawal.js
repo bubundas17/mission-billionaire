@@ -10,7 +10,7 @@ const Schema = new mongoose.Schema({
     amount: {type: Number},
     tkcaddress: {type: String},
     status: {type: String, default: "PROCESSING"}, // PROCESSING, SUCCEED and FAILED
-    discription: {type: String}, // message for admin from user
+    description: {type: String}, // message for admin from user
     remarks: {type: String}, // message for user about request details.
     date: {type: Date, default: Date.now}
 });
