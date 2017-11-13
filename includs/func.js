@@ -15,39 +15,39 @@ func.password  = (password, salt) => {
 };
 
 
-func.doRefCredit = (user) =>{
-    user.upTree.forEach((user, index) => {
+func.doRefCredit = (userc) =>{
+    userc.upTree.forEach((user, index) => {
         let credit = 0;
         switch (index) {
             case 0:
-                credit = 25;
+                credit = 100;
                 break;
             case 1:
-                credit = 10;
+                credit = 50;
                 break;
             case 2:
-                credit = 10;
+                credit = 30;
                 break;
             case 3:
-                credit = 10;
+                credit = 20;
                 break;
             case 4:
-                credit = 10;
+                credit = 20;
                 break;
             case 5:
-                credit = 5;
+                credit = 20;
                 break;
             case 6:
-                credit = 5;
+                credit = 20;
                 break;
             case 7:
-                credit = 5;
+                credit = 15;
                 break;
             case 8:
-                credit = 5;
+                credit = 15;
                 break;
             case 9:
-                credit = 5;
+                credit = 10;
                 break;
             default:
                 credit = 0;
@@ -68,15 +68,15 @@ func.doRefCredit = (user) =>{
             })
     });
 
-    if(! user.referedBy === user.upTree[0]){
-        userDB.findById(user.referedBy)
+    if(! userc.referedBy === userc.upTree[0]){
+        userDB.findById(userc.referedBy)
             .then( us => {
-                us.credits += credit;
+                us.credits += 100;
                 us.save();
                 ReferialincomeBD.create({
                     user: us._id,
                     description: "Activation of a user on level " + (index + 1),
-                    amount: credit
+                    amount: 100
                 })
             })
             .catch( e => {

@@ -23,6 +23,7 @@ const postSchema = new mongoose.Schema({
         email: {type: String, required: true},
         phone: {type: Number, required: true},
         dateOfBarth: String,
+        zebpay: {type: Number}
     },
     bitcoin: {type: String},
     totalReferred: {type: Number, default: 0},    // Maximum 2

@@ -60,7 +60,7 @@ router.get('/resetpwd', function (req, res) {
             if (user) {
                 func.makeReset(user.username, function (err, hash) {
                     if (err) {
-                        req.flash('error', 'Something Wants Wrong!')
+                        req.flash('error', 'Something Wants Wrong!');
                         res.redirect('/login');
                         return;
                     }
@@ -219,6 +219,7 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
     let phone = req.body.phone;
     let referedby = req.body.referedby;
     let btc = req.body.btc;
+    let zebpay = req.body.zebpay;
 
 
     // Password Encryption Logic
@@ -247,6 +248,7 @@ router.post('/signup', middlewares.ifNotLoggedIn, middlewares.checkCaptha, (req,
                                 meta: {
                                     email: email,
                                     phone: phone,
+                                    zebpay: zebpay
                                 },
                                 referedBy: refUser,
                                 password: hash, // Storing Hashed password instead of actual password.

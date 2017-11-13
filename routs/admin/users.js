@@ -77,7 +77,6 @@ router.get('/:id/view', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) 
 router.get('/:id/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
     userDB.findById(req.params.id)
         .then(user => {
-            console.log(user);
             res.render("admin/users/active.ejs", {user: user})
         })
         .catch(err => {
@@ -87,9 +86,23 @@ router.get('/:id/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res
 });
 
 router.post('/:id/active', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
+    console.log(req.body)
     userDB.findById(req.params.id)
         .then(user => {
-            res.render("admin/users/active.ejs", {user: user})
+            if(req.body.status === "active"){
+                user.isActive = true
+            }
+            if(req.body.refcredit === "ok" ){
+                func.doRefCredit(user);
+            }
+            user.save( e => {
+                if(e){
+                    req.flash('error', 'Something Is Wants Wrong! Please Contact To Administrator.');
+                    return res.redirect('back');
+                }
+                req.flash('success', 'User Activated!');
+                return res.redirect('back');
+            })
         })
         .catch(err => {
             req.flash('error', 'Something Is Wants Wrong! Please Contact To Administrator.');
