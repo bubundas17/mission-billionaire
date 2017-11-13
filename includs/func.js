@@ -6,11 +6,83 @@ const config = require('../config');
 // Databases.
 const userDB = require('../models/user');
 const statementDB = require('../models/statement');
+const ReferialincomeBD = require('../models/referialincome');
 
 let func = {};
 // Random Password Salt Generator
 func.password  = (password, salt) => {
     return sha1(sha1(password).toString() + md5(salt).toString()).toString();
+};
+
+
+func.doRefCredit = (userc) =>{
+    userc.upTree.forEach((user, index) => {
+        let credit = 0;
+        switch (index) {
+            case 0:
+                credit = 100;
+                break;
+            case 1:
+                credit = 50;
+                break;
+            case 2:
+                credit = 30;
+                break;
+            case 3:
+                credit = 20;
+                break;
+            case 4:
+                credit = 20;
+                break;
+            case 5:
+                credit = 20;
+                break;
+            case 6:
+                credit = 20;
+                break;
+            case 7:
+                credit = 15;
+                break;
+            case 8:
+                credit = 15;
+                break;
+            case 9:
+                credit = 10;
+                break;
+            default:
+                credit = 0;
+                break;
+        }
+        userDB.findById(user)
+            .then( us => {
+                us.credits += credit;
+                us.save();
+                ReferialincomeBD.create({
+                    user: us._id,
+                    description: "Activation of a user on level " + (index + 1),
+                    amount: credit
+                })
+            })
+            .catch( e => {
+                console.log(e);
+            })
+    });
+
+    if(! userc.referedBy === userc.upTree[0]){
+        userDB.findById(userc.referedBy)
+            .then( us => {
+                us.credits += 100;
+                us.save();
+                ReferialincomeBD.create({
+                    user: us._id,
+                    description: "Activation of a user on level " + (index + 1),
+                    amount: 100
+                })
+            })
+            .catch( e => {
+                console.log(e);
+            })
+    }
 };
 
 // Make Email Address Show Parthia.

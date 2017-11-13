@@ -1,83 +1,84 @@
 <% include ../../inc/header %>
 <div class="container">
-  <h1>Client area</h1>
+    <h1>Client area</h1>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% include ../../inc/usercpsider.ejs %>
-    </div>
-    <div class="col-md-8">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h4>Income</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <% include ../../inc/usercpsider.ejs %>
         </div>
-        <div class="panel-body">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Referral Income
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Discription</th>
-                      <th>Amount</th>
-                      <th>Date</th>
-                    </tr>
-                  </thead>
-                  <% data.docs.forEach( token => { %>
-                    <tbody>
-                        <tr>
-                          <td><%= token.discription %></td>
-                          <td><strong><%= token.amount %></strong></td>
-                          <td><span><%= token.date %></span></td>
-                        </tr>
-                      </tbody>
-                  <% }) %>
-              </table>
-              <%
-              var q = req.query.q || "";
-              %>
-              <nav aria-label="Pagenation"  class="center">
-                <ul class="pagination">
-                  <%if(data.page <= 1){ %>
-                    <li class="disabled"><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                    <% } else { %>
-                      <li><a href="?<%= func.objtoQuery({
-                        q: q,
-                        page: data.page-1
-                      }) %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                      <% } %>
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>Income</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Referral Income
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Discription</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <% data.docs.forEach( token => { %>
+                                <tbody>
+                                <tr>
+                                    <td><%= token.description %></td>
+                                    <td><strong><%= token.amount %></strong></td>
+                                    <td><span><%= token.date %></span></td>
+                                </tr>
+                                </tbody>
+                                <% }) %>
+                            </table>
+                            <%
+                            var q = req.query.q || "";
+                            %>
+                            <nav aria-label="Pagenation" class="center">
+                                <ul class="pagination">
+                                    <% if(data.page <= 1){ %>
+                                    <li class="disabled"><a aria-label="Previous"><span
+                                                    aria-hidden="true">&laquo;</span></a></li>
+                                    <% } else { %>
+                                    <li><a href="?<%= func.objtoQuery({
+                                            q: q,
+                                            page: data.page - 1
+                                        }) %>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                    <% } %>
 
-                      <% for(i=1; i<= data.pages; i++) { %>
-                        <%if(data.page == i){ %>
-                          <li class="active"><a><%= i %><span class="sr-only">(current)</span></a></li>
-                          <% } else { %>
-                            <li><a href="?<%= func.objtoQuery({
-                              q: q,
-                              page: i
-                            }) %>" ><%= i %></a></li>
-                            <% } %>
-                            <% }%>
+                                    <% for(i = 1; i <= data.pages; i++) { %>
+                                    <% if(data.page == i){ %>
+                                    <li class="active"><a><%= i %><span class="sr-only">(current)</span></a></li>
+                                    <% } else { %>
+                                    <li><a href="?<%= func.objtoQuery({
+                                            q: q,
+                                            page: i
+                                        }) %>"><%= i %></a></li>
+                                    <% } %>
+                                    <% } %>
 
-
-                            <%if(data.page == data.pages){ %>
-                              <li class="disabled"><a aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                              <% } else { %>
-                                <li><a href="?<%= func.objtoQuery({
-                                  q: q,
-                                  page: parseInt(data.page) + 1
-                                }) %>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                <% } %>
-                              </ul>
+                                    <% if(data.page == data.pages){ %>
+                                    <li class="disabled"><a aria-label="Next"><span
+                                                    aria-hidden="true">&raquo;</span></a></li>
+                                    <% } else { %>
+                                    <li><a href="?<%= func.objtoQuery({
+                                            q: q,
+                                            page: parseInt(data.page) + 1
+                                        }) %>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                    <% } %>
+                                </ul>
                             </nav>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <% include ../../inc/footer %>

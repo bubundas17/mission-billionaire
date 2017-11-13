@@ -1,37 +1,37 @@
 <% include ../inc/header %>
 <div class="container">
-  <h1>Admin Area</h1>
+    <h1>Admin Area</h1>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% include ../inc/admincpsider.ejs %>
-    </div>
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-block">
-        <form class="" action="/admin/recharge" method="post">
-          <div class="form-group">
-            <label for="select User">Select User</label>
-            <select class="" name="user" class="form-group">
-              <% users.forEach(function(user){ %>
-                <option value="<%= user._id %>"><%= user.username %></option>
-              <% }) %>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="ammount">ammount:</label>
-            <input type="number" name="ammount" value="" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="reason">reason:</label>
-            <input type="text" name="reason" value="" class="form-control">
-          </div>
-          <button class="btn btn-success">Recharge!</button>
-        </form>
+    <div class="row">
+        <div class="col-md-4">
+            <% include ../inc/admincpsider.ejs %>
         </div>
-      </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-block">
+                    <form class="" action="/admin/recharge" method="post">
+                        <div class="form-group">
+                            <label for="select User">Select User</label>
+                            <select class="" name="user" class="form-group">
+                                <% users.forEach(function(user){ %>
+                                <option value="<%= user._id %>"><%= user.username %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ammount">ammount:</label>
+                            <input type="number" name="ammount" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">reason:</label>
+                            <input type="text" name="reason" value="" class="form-control">
+                        </div>
+                        <button class="btn btn-success">Recharge!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <% include ../inc/footer %>

@@ -8,7 +8,7 @@ const config        = require('../../config.js')
 
 router.get('/', middlewares.ifLoggedIn, function(req, res) {
   res.render('clientarea/referrals/index.ejs')
-})
+});
 
 
 module.exports = router;

@@ -1,4 +1,5 @@
 <% include ../inc/header %>
+<% include ../inc/usercpsider.ejs %>
 <div class="particles">
   <div id="particles-js">
   </div>
@@ -19,7 +20,7 @@
                 <input type="hidden" name="ref" value="<%- ref %>">
                 <% } %>
                 <label for="Captha">Human Verification:</label>
-                <div class="g-recaptcha" data-sitekey="6Lcz3ikUAAAAAPWKCJorBvf8VvXjaDUUf2dBWkdC"></div>
+                <div class="g-recaptcha" data-sitekey="<%= config.recaptcha.siteKey %>"></div>
                 <hr>
                 <button name="button" class="btn btn-success">Send Reset link</button>
               </div>

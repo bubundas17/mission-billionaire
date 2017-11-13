@@ -2,7 +2,7 @@
 <% include ../../inc/admincpsider %>
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h4>User List</h4>
+        <h4>Users Waiting for activation</h4>
     </div>
     <div class="panel-body">
         <div class="list-group">
@@ -22,8 +22,9 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Username</th>
+                        <th>IS Active?</th>
                         <th>Credits</th>
-                        <th>Actions</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,9 +33,10 @@
                         <th scope="row"><%= index + 1 %></th>
                         <td><%= user.name %></td>
                         <td><%= user.username %></td>
+                        <td><%= user.isActive.toString() %></td>
                         <td><%= user.credits %></td>
-                        <td><a href="/admin/users/<%= user._id %>/view"
-                               class="btn btn-success btn-sm"><%= "Manage" %></a></td>
+                        <td><a href="/admin/users/<%= user._id %>/active"
+                               class="btn btn-success btn-sm"><%= "Change..." %></a></td>
                     </tr>
                     <% }) %>
                     </tbody>
@@ -76,6 +78,7 @@
                     <% } %>
                 </ul>
             </nav>
+
         </div>
     </div>
 </div>

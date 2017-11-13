@@ -1,55 +1,57 @@
 <% include ../inc/header %>
 <div class="container">
-  <h1>Admin Area</h1>
+    <h1>Admin Area</h1>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% include ../inc/admincpsider.ejs %>
-    </div>
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>View Plan</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <% include ../inc/admincpsider.ejs %>
         </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <strong class="form-text">User info:</strong>
-              <p>username: <%= services.user.username %></p>
-              <p>name: <%= services.user.name %></p>
-              <p>Credits: <%= services.user.credits %></p>
-              <p>Email: <%= services.user.meta.email %></p>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>View Plan</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <strong class="form-text">User info:</strong>
+                        <p>username: <%= services.user.username %></p>
+                        <p>name: <%= services.user.name %></p>
+                        <p>Credits: <%= services.user.credits %></p>
+                        <p>Email: <%= services.user.meta.email %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <p><%= services.service.username %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>package name:</label>
+                        <p><%= services.service.package %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Domain name:</label>
+                        <p><%= services.service.domain %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <p><%= services.service.status %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>>Renewed Until:</label>
+                        <p> <%= func.formatDate(services.service.nextRenewal) %></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Account Information:</label>
+                        <p><%- services.service.info %></p>
+                    </div>
+                    <a href="/admin/services/<%= services._id %>/edit" class="btn btn-success">Edit Service</a>
+                    <a href="/admin/services/<%= services._id %>/active" class="btn btn-info">Active Service</a>
+                    <form action="/admin/services/<%= services._id %>?_method=delete" method="post" class="form-inline">
+                        <button class="btn btn-warning">Delete</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-              <label>Username:</label>
-              <p><%= services.service.username %></p>
-            </div>
-            <div class="form-group">
-              <label>package name:</label>
-              <p><%= services.service.package %></p>
-            </div>
-            <div class="form-group">
-              <label>Domain name:</label>
-              <p><%= services.service.domain %></p>
-            </div>
-            <div class="form-group">
-              <label>Status:</label>
-              <p><%= services.service.status %></p>
-            </div>
-            <div class="form-group">
-              <label>>Renewed Until:</label>
-              <p> <%= func.formatDate(services.service.nextRenewal) %></p>
-            </div>
-            <div class="form-group">
-              <label>Account Information:</label>
-              <p><%- services.service.info %></p>
-            </div>
-            <a href="/admin/services/<%= services._id %>/edit" class="btn btn-success">Edit Service</a>
-            <a href="/admin/services/<%= services._id %>/active" class="btn btn-info">Active Service</a>
-            <form action="/admin/services/<%= services._id %>?_method=delete" method="post" class="form-inline"><button class="btn btn-warning">Delete</button></form>
-          </div>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 <% include ../inc/footer %>

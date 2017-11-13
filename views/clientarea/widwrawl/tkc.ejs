@@ -1,36 +1,37 @@
 <% include ../../inc/header %>
-  <div class="container">
+<div class="container">
     <h1>Client area</h1>
-  </div>
-  <div class="container">
+</div>
+<div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <% include ../../inc/usercpsider.ejs %>
-      </div>
-      <div class="col-md-8">
-        <div class="list-group">
-          <div class="list-group-item active">
-            <h5>withdrawal Via TKC Wallet</h5>
-          </div>
-          <div class="list-group-item">
-            <p>Here you can withdrawal your Tkc4you.com credits.</p>
-            <p class="info"> <strong>Note: Please fill the widwrawl form carefully, it can't be undone later!</strong></p>
-          </div>
-          <form action="/clientarea/widwrawl/tkc" method="post" class="form-group">
-          <div class="list-group-item">
-           <span for="TKC Address">Your Wallet Address: <%= userInfo.tkc %></span>
-            <p>NOTE: To Chenge your TKC Wallet Address, Please Go To Your profile and chenge it.</p>
-          </div>
-          <div class="list-group-item">
-            <span>Enter Ammount (50TKC MIN.)</span>
-            <input type="number" name="amount" value="50">
-          </div>
-          <div class="list-group-item">
-            <input type="submit" class="btn btn-success" value="Widwraw" id="rech">
-          </div>
-        </form>
+        <div class="col-md-4">
+            <% include ../../inc/usercpsider.ejs %>
         </div>
-      </div>
+        <div class="col-md-8">
+            <div class="list-group">
+                <div class="list-group-item active">
+                    <h5>withdrawal Via TKC Wallet</h5>
+                </div>
+                <div class="list-group-item">
+                    <p>Here you can withdrawal your Tkc4you.com credits.</p>
+                    <p class="info"><strong>Note: Please fill the widwrawl form carefully, it can't be undone
+                            later!</strong></p>
+                </div>
+                <form action="/clientarea/widwrawl/tkc" method="post" class="form-group">
+                    <div class="list-group-item">
+                        <span for="TKC Address">Your Wallet Address: <%= userInfo.tkc %></span>
+                        <p>NOTE: To Chenge your TKC Wallet Address, Please Go To Your profile and chenge it.</p>
+                    </div>
+                    <div class="list-group-item">
+                        <span>Enter Ammount (50TKC MIN.)</span>
+                        <input type="number" name="amount" value="50">
+                    </div>
+                    <div class="list-group-item">
+                        <input type="submit" class="btn btn-success" value="Widwraw" id="rech">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-  <% include ../../inc/footer %>
+</div>
+<% include ../../inc/footer %>
