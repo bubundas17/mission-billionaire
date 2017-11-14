@@ -15,36 +15,31 @@ router.get('/edit', middlewares.ifLoggedIn, function (req, res) {
 
 router.put('/edit', middlewares.ifLoggedIn, function (req, res) {
     req.user.meta.phone = req.body.phone;
-    req.user.meta.dateOfBarth = req.body.dateOfBarth;
-    req.user.meta.address.country = req.body.country;
-    req.user.meta.address.state = req.body.state;
-    req.user.tkc = req.body.tkc;
+    req.user.bitcoin = req.body.bitcoin;
     req.user.save(function (err) {
         if (err) {
-            req.flash('error', 'Upps! Somthing Wents Wrong. Please Cotact To Administrator')
+            req.flash('error', 'Ups! Something Wants Wrong. Please Contact To Administrator');
             res.redirect('/profile');
         } else {
-            req.flash('success', 'Saved')
+            req.flash('success', 'Saved');
             res.redirect('/profile');
         }
     })
-
 });
-
 
 router.get('/chengepass', middlewares.ifLoggedIn, (req, res) => {
     res.render('profile/chengepass.ejs')
 });
 
 router.post('/chengepass', middlewares.ifLoggedIn, (req, res) => {
-    var oldpassword = req.body.oldpass
-    var newPass = req.body.newpass
+    let oldpassword = req.body.oldpass;
+    let newPass = req.body.newpass;
 
     func.checkUser(req.user.username, oldpassword, pass => {
         if (pass) {
             func.setPassword(req.user, newPass, function (err, usr) {
                 if (err) {
-                    req.flash('error', 'Something Wants Wrong! Please Contact To Support.')
+                    req.flash('error', 'Something Wants Wrong! Please Contact To Support.');
                     res.redirect('back');
                     console.log(err);
                     return;
@@ -59,14 +54,14 @@ router.post('/chengepass', middlewares.ifLoggedIn, (req, res) => {
                     }
                     mailer.send({
                         to: req.user.meta.email,
-                        subject: "Password Reset Completed! - TKC4YOU",
+                        subject: "Password Reset Completed! - Mission Billionaire",
                         html: html
                     });
-                })
+                });
                 res.redirect('back');
             })
         } else {
-            req.flash('error', 'Please Enter Youe Current Password Properly.');
+            req.flash('error', 'Please Enter Your Current Password Properly.');
             res.redirect('back');
         }
     })
