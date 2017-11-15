@@ -1,9 +1,9 @@
-const express = require('express');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo');
-
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const sessionStore = new MongoStore({ mongooseConnection: mongoose.connection });
 // MongoStore = MongoStore(express)
-
+// console.log(mongoose.connection.config);
 let config = {};
 config.site = {
     protocol: "https://",
@@ -14,7 +14,7 @@ config.site = {
 config.sessions = {
     secret: '%^&&%&#^%$^%&^*&(*^%$#kjhdsfkjhlfdshjkldgfshljkgfdjkhlgfdjkhl5264245626455264',
     cookie: {expires: new Date(253402300000000)},
-    // store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: sessionStore,
     resave: false,
     saveUninitialized: false
 };

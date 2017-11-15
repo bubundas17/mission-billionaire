@@ -206,7 +206,24 @@ router.get('/logout', middlewares.ifLoggedIn, (req, res) => {
 // Sign Up Routs
 router.get('/signup', middlewares.ifNotLoggedIn, function (req, res) {
     res.locals.title = 'Create A New Account' + " - " + res.locals.title;
-    return res.render('auth/signup.ejs');
+    let ref = req.query.ref;
+    if (ref) {
+        userDB.findOne({username: ref})
+            .then(user => {
+                if (user) {
+                    return res.render('auth/signup.ejs');
+                }
+                req.flash('error', 'No User Found With The Referral ID.');
+                return res.redirect('/');
+            })
+            .catch(e => {
+                req.flash('error', 'Database Error! Please Contact to site admin.');
+                return res.redirect('/');
+            })
+    } else {
+        res.render('auth/signup.ejs');
+    }
+
 });
 
 // Registering User.

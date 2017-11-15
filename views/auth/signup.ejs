@@ -62,7 +62,7 @@
 
         <form action="/signup" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Referer ID" name="referedby">
+                <input type="text" class="form-control" placeholder="Referer ID" name="referedby" value="<%= req.query.ref || "" %>" <% if( req.query.ref){%> disabled <%}%>>
                 <span class="fa fa-bullhorn form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
