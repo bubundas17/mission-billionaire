@@ -10,12 +10,12 @@ const ReferialincomeBD = require('../models/referialincome');
 
 let func = {};
 // Random Password Salt Generator
-func.password  = (password, salt) => {
+func.password = (password, salt) => {
     return sha1(sha1(password).toString() + md5(salt).toString()).toString();
 };
 
 
-func.doRefCredit = (userc) =>{
+func.doRefCredit = (userc) => {
     userc.upTree.forEach((user, index) => {
         let credit = 0;
         switch (index) {
@@ -54,7 +54,7 @@ func.doRefCredit = (userc) =>{
                 break;
         }
         userDB.findById(user)
-            .then( us => {
+            .then(us => {
                 us.credits += credit;
                 us.save();
                 ReferialincomeBD.create({
@@ -63,14 +63,14 @@ func.doRefCredit = (userc) =>{
                     amount: credit
                 })
             })
-            .catch( e => {
+            .catch(e => {
                 console.log(e);
             })
     });
 
-    if(! userc.referedBy === userc.upTree[0]){
+    if (! userc.referedBy === userc.upTree[0]) {
         userDB.findById(userc.referedBy)
-            .then( us => {
+            .then(us => {
                 us.credits += 100;
                 us.save();
                 ReferialincomeBD.create({
@@ -79,7 +79,7 @@ func.doRefCredit = (userc) =>{
                     amount: 100
                 })
             })
-            .catch( e => {
+            .catch(e => {
                 console.log(e);
             })
     }
@@ -90,7 +90,7 @@ func.hideEmail = email => {
     const parts = email.split("@");
     var name = parts[0];
     var result = name[2];
-    for(var i=1; i<name.length; i++) {
+    for (var i = 1; i < name.length; i++) {
         result += "*";
     }
     result += name.charAt(name.length - 1);
@@ -98,7 +98,7 @@ func.hideEmail = email => {
     var domain = parts[1];
     result += domain.charAt(0);
     var dot = domain.indexOf(".");
-    for(var i=1; i<dot; i++) {
+    for (var i = 1; i < dot; i++) {
         result += "*";
     }
     result += domain.substring(dot);
@@ -108,88 +108,90 @@ func.hideEmail = email => {
 
 
 // Hide Parts Of Email ID
-func.censorEmail = function (email){
+func.censorEmail = function (email) {
     let arr = email.split("@");
     return this.censorWord(arr[0]) + "@" + this.censorWord(arr[1]);
 };
 
 
 // Generating Password Reset Link.
-func.makeReset  = (user, callback) => {
-  userDB.findOne({username: user.toLowerCase()}, (err, userinfo) => {
-    if (err) {
-      callback(err, null);
-    }
-      let hash = sha1(sha1(userinfo.salt).toString() + md5(userinfo.username).toString() + md5(userinfo.credits).toString()).toString();
-      callback(null, hash)
-  })
+func.makeReset = (user, callback) => {
+    userDB.findOne({username: user.toLowerCase()}, (err, userinfo) => {
+        if (err) {
+            callback(err, null);
+        }
+        let hash = sha1(sha1(userinfo.salt).toString() + md5(userinfo.username).toString() + md5(userinfo.credits).toString()).toString();
+        callback(null, hash)
+    })
 };
 
 // Set / Update password of a user.
-func.setPassword = function(user, password, callback){
+func.setPassword = function (user, password, callback) {
     let salt = this.createSalt();
     let hash = this.password(password, salt);
     user.password = hash; // Storing Hashed password instead of actual password.
     user.salt = salt;
-    user.save(function(err, user){
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, user);
-    }
-  })
+    user.save(function (err, user) {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, user);
+        }
+    })
 };
 
 // Setting Up Global Variable.
 func.global = (req, res, next) => {
-  var sess  = req.session;
-  res.locals.userInfo = false;
-  res.locals.body = req.body;
-  res.locals.func = func;
-  res.locals.config = config;
-  res.locals.query = req.query;
-  res.locals.title = "Mission Billionaire";
-  res.locals.md5 = md5;
-  res.locals.req = req;
-  res.locals.res = res;
-  if (req.user) {
-    res.locals.userInfo = req.user;
-  }
+    var sess = req.session;
+    res.locals.userInfo = false;
+    res.locals.body = req.body;
+    res.locals.func = func;
+    res.locals.config = config;
+    res.locals.query = req.query;
+    res.locals.title = "Mission Billionaire";
+    res.locals.md5 = md5;
+    res.locals.req = req;
+    res.locals.res = res;
+    if (req.user) {
+        res.locals.userInfo = req.user;
+    }
 
-  next()
+    next()
 
 };
 
 // Check User's Password.
 func.checkUser = (username, pwd, callback) => {
-  var salt;
-  username = username.toLowerCase();
-  if (username && pwd) {
-    userDB.findOne({$or: [{username: username}, {'meta.email': username}]}, function(err, user){
-      if (err) {
-        console.log(err);
-        callback(false);
-      }
-      if (user) {
-        // if (user.username == username) {
-          salt = user.salt;
-        // } else {callback(false)}
-        if( sha1(sha1(pwd).toString() + md5(salt).toString()).toString() === user.password){
-           callback(sha1(sha1(pwd).toString() + md5(salt).toString()).toString());
-        } else { callback(false);}
-      } else callback(false);
-    })
-  } else callback(false);
+    var salt;
+    username = username.toLowerCase();
+    if (username && pwd) {
+        userDB.findOne({$or: [{username: username}, {'meta.email': username}]}, function (err, user) {
+            if (err) {
+                console.log(err);
+                callback(false);
+            }
+            if (user) {
+                // if (user.username == username) {
+                salt = user.salt;
+                // } else {callback(false)}
+                if (sha1(sha1(pwd).toString() + md5(salt).toString()).toString() === user.password) {
+                    callback(sha1(sha1(pwd).toString() + md5(salt).toString()).toString());
+                } else {
+                    callback(false);
+                }
+            } else callback(false);
+        })
+    } else callback(false);
 };
 // Random salt Generator.
 func.createSalt = () => {
-  var length = 18,
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      retVal = "";
-  for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n));
-  }
-  return retVal;
+    var length = 18,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
 };
 // Password and salting Checker and combiner
 
@@ -198,19 +200,19 @@ func.refName = req => {
     let reffDir = urlP.parse(reffUrl).pathname;
     let reffHost = urlP.parse(reffUrl).hostname;
     if (config.site.siteUrl === reffHost) {
-    return  reffDir.substring(1);
-  } else {
-    return false;
-  }
+        return reffDir.substring(1);
+    } else {
+        return false;
+    }
 };
 
-func.makeTxn  = (inuser, info, save, callback) => {
+func.makeTxn = (inuser, info, save, callback) => {
     let txnType = "";
-    if (info.ammount < 0 ) {
-    txnType = "DEBIT";
-  } else {
-    txnType = "CREDIT";
-  }
+    if (info.ammount < 0) {
+        txnType = "DEBIT";
+    } else {
+        txnType = "CREDIT";
+    }
     let txnID;
     let d = new Date();
     txnID = d.getUTCDate().toString();
@@ -222,37 +224,37 @@ func.makeTxn  = (inuser, info, save, callback) => {
     txnID += d.getUTCMinutes().toString();
     txnID += d.getUTCSeconds().toString();
     txnID += d.getUTCMilliseconds().toString();
-  statementDB.create({
-    user: inuser,
-    txnId: txnID,
-    txnType: txnType,
-    ammount: Math.abs(info.ammount),
-    reason: info.reason,
-    status: info.status  || "SUCCEED",
-  }, function(err, txn){
-    if (err) {
-      callback(err, null); // Run Callback With Error
-    } else {
-      if (save) {
-        userDB.findById(inuser, function(err1, userData){
-          if (err1) {
-            callback(err1, null);
-          } else {
-            userData.credits += info.ammount;
-            userData.save(function(err2){
-              if (err2) {
-                callback(err2, null);
-              } else {
+    statementDB.create({
+        user: inuser,
+        txnId: txnID,
+        txnType: txnType,
+        ammount: Math.abs(info.ammount),
+        reason: info.reason,
+        status: info.status || "SUCCEED",
+    }, function (err, txn) {
+        if (err) {
+            callback(err, null); // Run Callback With Error
+        } else {
+            if (save) {
+                userDB.findById(inuser, function (err1, userData) {
+                    if (err1) {
+                        callback(err1, null);
+                    } else {
+                        userData.credits += info.ammount;
+                        userData.save(function (err2) {
+                            if (err2) {
+                                callback(err2, null);
+                            } else {
+                                callback(null, txn.txnId);
+                            }
+                        })
+                    }
+                })
+            } else {
                 callback(null, txn.txnId);
-              }
-            })
-          }
-        })
-      } else {
-        callback(null, txn.txnId);
-      }
-    }
-  })
+            }
+        }
+    })
 };
 
 func.getTxnId = date => {
@@ -285,8 +287,6 @@ func.formatDate = date => {
 
     return dt + '-' + month + '-' + year
 };
-
-
 
 
 func.timeDifference = (current, previous) => {
@@ -327,32 +327,37 @@ func.timeDifference = (current, previous) => {
 // This Function Takes user as arguments and return the referable user from the database.
 
 func.getReferableUser = (user, callback) => {
-  return new Promise((resolve, reject) => {
-    if (user.totalReferred <= 2) {
-      // User Can add masers to his downstream.
-      resolve(user);
-      return callback(null, user);
-    }
+    return new Promise((resolve, reject) => {
+        if (user.totalReferred < 2) {
+            // User Can add masers to his downstream.
+            resolve(user);
+            return callback(null, user);
+        }
 
-    return userDB.findOne({upTree: user._id, totalReferred: {$lt: 2}})
-      .then((value) => {
-        if (value) {
-          resolve(value);
-          return callback(null, value);
-        }
-        return userDB.findOne({totalReferred: {$lt: 2}})
-      })
-      .then((value) => {
-        if (value) {
-          resolve(value);
-          return callback(null, value);
-        }
-      })
-      .catch((err) => {
-        reject(err);
-        return callback(err, null);
-      })
-  })
+        return userDB.findOne({upTree: user._id, totalReferred: {$lt: 2}})
+            .then((value) => {
+                if (value) {
+                    resolve(value);
+                    return callback(null, value);
+                }
+                return userDB.findOne({totalReferred: {$lt: 2}})
+            })
+            .then((value) => {
+                if (value) {
+                    resolve(value);
+                    return callback(null, value);
+                }
+            })
+            .catch((err) => {
+                reject(err);
+                return callback(err, null);
+            })
+    })
 };
 
-module.exports  = func;
+func.toTitleCase = (str) => {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+};
+module.exports = func;

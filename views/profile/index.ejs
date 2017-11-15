@@ -19,32 +19,14 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">DOB:</label>
+                <label class="col-sm-2 col-form-label">BIT Coin Address:</label>
                 <div class="col-sm-10">
-                    <p class="form-control-static"> <%= user.meta.dateOfBarth %> </p>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Country:</label>
-                <div class="col-sm-10">
-                    <p class="form-control-static"> <%= user.meta.address.country %> </p>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">State:</label>
-                <div class="col-sm-10">
-                    <p class="form-control-static"> <%= user.meta.address.state %> </p>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">KIT Coin Address:</label>
-                <div class="col-sm-10">
-                    <p class="form-control-static"> <%= user.tkc %> </p>
+                    <p class="form-control-static"> <%= user.bitcoin %> </p>
                 </div>
             </div>
         </div>
         <a href="/profile/edit" class="btn btn-success"> Edit</a>
-        <a href="/profile/chengepass" class="btn btn-info"> Chenge Password</a>
+        <a href="/profile/chengepass" class="btn btn-info"> Change Password</a>
     </div>
 </div>
 

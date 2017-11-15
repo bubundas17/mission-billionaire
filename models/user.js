@@ -10,7 +10,8 @@ const postSchema = new mongoose.Schema({
     username: {
         type: String,
         min: 6,
-        unique: true
+        unique: true,
+        required: true
     },
     password: {
         type: String,
@@ -20,15 +21,15 @@ const postSchema = new mongoose.Schema({
         type: String
     },
     meta: {
-        email: {type: String, required: true},
+        email: {type: String, required: true, unique: true},
         phone: {type: Number, required: true},
         dateOfBarth: String,
         zebpay: {type: Number}
     },
     bitcoin: {type: String},
     totalReferred: {type: Number, default: 0},    // Maximum 2
-    upTree: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}], // Last 10 Users Above him.["Ram", "bubun", "subham", "Rakesh"] etc...
-    referedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},   // Name of the user who refered.
+    upTree: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}], // Last 10 Users Above him.["Ram", "bubun", "subham", "bubundas17@gmail.com"] etc...
+    referedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},   // Name of the user who referred.
     credits: {type: Number, default: 0},
     isAdmin: {type: Boolean, default: false},
     isActive: {type: Boolean, default: false},

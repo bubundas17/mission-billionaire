@@ -147,12 +147,6 @@ router.put('/:id', middlewares.ifLoggedIn, middlewares.ifAdmin, (req, res) => {
                 case "address":
                     user.meta.email = req.body.email;
                     user.meta.phone = req.body.phone;
-                    user.meta.dateOfBarth = req.body.dateOfBarth;
-                    user.meta.address.country = req.body.country;
-                    user.meta.address.state = req.body.state;
-                    user.meta.address.city = req.body.city;
-                    user.meta.address.address1 = req.body.address1;
-                    user.meta.address.address2 = req.body.address2;
                     user.save(function (err) {
                         if (err) {
                             req.flash('error', 'Upps! Something Wants Wrong. Please Contact To Administrator');
