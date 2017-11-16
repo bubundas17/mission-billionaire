@@ -1,42 +1,31 @@
-<% include ../inc/header %>
-<div class="container">
-  <h1>Client area</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% include ../inc/usercpsider.ejs %>
+<% include ../inc/usercpHead %>
+<% include ../inc/usercpsider.ejs %>
+<div class="box">
+    <div class="box-header with-border">
+        <h4>Support Tickets</h4>
     </div>
-    <div class="col-md-8">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h4>Support Tickets</h4>
-        </div>
-        <div class="panel-body">
-          <div class="jumbotron">
+    <div class="box-body">
+        <div class="jumbotron">
             <h4>View Tickets</h4>
             <hr>
             <a href="/clientarea/tickets/new" class="btn btn-info">Submit a new ticket</a>
-          </div>
-          <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Statas</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <% tickets.forEach( ticket => { %>
-                <tbody>
-                    <tr>
-                      <td><span style="color:#4caf50"><%= ticket.status %></span></td>
-                      <td><a href="/clientarea/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
-                    </tr>
-                  </tbody>
-              <% }) %>
-          </table>
         </div>
-      </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Statas</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <% tickets.forEach( ticket => { %>
+            <tbody>
+            <tr>
+                <td><span style="color:#4caf50"><%= ticket.status %></span></td>
+                <td><a href="/clientarea/tickets/<%= ticket._id %>" class="btn btn-info">View</a></td>
+            </tr>
+            </tbody>
+            <% }) %>
+        </table>
     </div>
-  </div>
 </div>
 <% include ../inc/footer %>

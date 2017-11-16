@@ -12,7 +12,7 @@ const rechargeDB     = require('../../models/recharge');
 router.get('/', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
     Promise.all([widwrawlDB.find({user: req.user._id}), rechargeDB.find({user: req.user._id})])
         .then( reqs => {
-            res.locals.title = 'Widwrawl Requests ' + ' - ' + res.locals.title;
+            res.locals.title = 'Withdrawal Requests ' + ' - ' + res.locals.title;
             res.render('clientarea/widwrawl/index.ejs', {widwrawls: reqs[0], recharges: reqs[1]})
         })
         .catch( err => {
@@ -32,7 +32,7 @@ router.post('/tkc', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) =>
     sysinfoDB.findOne({ name: "Tkc4you" })
         .then( info => {
             if (tkc < 50) {
-                req.flash("error", "Amount cannot be lessthan 50!");
+                req.flash("error", "Amount cannot be less than 50!");
                 return res.redirect('back')
             }
 
@@ -78,14 +78,14 @@ router.get('/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res
 });
 
 router.post('/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, res) => {
-    const operator  =   req.body.operator
-    const state     =   req.body.state
-    const number    =   req.body.number
-    var amount      =   req.body.amount
-    amount          =   parseInt(amount)
+    const operator  =   req.body.operator;
+    const state     =   req.body.state;
+    const number    =   req.body.number;
+    let amount      = req.body.amount;
+    amount          =   parseInt(amount);
     sysinfoDB.findOne({ name: "Tkc4you" })
         .then( info => {
-            var tckAmount = (amount * info.tkcRates)
+            var tckAmount = (amount * info.tkcRates);
             console.log(tckAmount);
             if (tckAmount < 0) {
                 req.flash("error", "Amount cannot be lessthan zero!");
@@ -110,19 +110,19 @@ router.post('/recharge', middlewares.ifLoggedIn,  middlewares.ifActive, (req, re
                 amount: tckAmount
             })
                 .then(data => {
-                    req.flash("success", "Cool! Your request is submited!");
+                    req.flash("success", "Cool! Your request is submitted!");
                     return res.redirect('back')
                 })
                 .catch( err => {
-                    req.flash("error", "Somthing is wents Wrong.");
-                    res.redirect('back')
+                    req.flash("error", "Something is wants Wrong.");
+                    res.redirect('back');
                     console.log("Database Update Failed!");
                     console.log(err);
                 })
         })
         .catch( err => {
-            req.flash("error", "Somthing is wents Wrong.");
-            res.redirect('back')
+            req.flash("error", "Something is wants Wrong.");
+            res.redirect('back');
             console.log("Database Update Failed!");
             console.log(err);
         })
